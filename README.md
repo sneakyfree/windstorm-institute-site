@@ -8,7 +8,7 @@ Live site: [windstorminstitute.org](https://windstorminstitute.org)
 
 **Track 1 — The Throughput Basin** (Papers 1–9, complete arc): information-theoretic constraints on serial decoders, from ribosomes to transformers.
 
-**Track 2 — Entropic Bounds in Analog Systems** (Paper 10, newly opened): non-equilibrium thermodynamic bounds applied to BEC analog gravity systems.
+**Track 2 — Entropic Bounds in Analog Systems** (Papers 10–16, in progress): non-equilibrium thermodynamic bounds — BEC analog gravity, the static escrow postulate, lattice-QFT verification, and an 𝒩_esc recipe across gravitational regimes.
 
 ## Structure
 
@@ -35,6 +35,10 @@ articles/               — Long-form article version of each paper
   phonon-extraction-bound.html       (Paper 10)
   gravitational-entropy-escrow.html  (Paper 11)
   c8-clarification-note.html         (Paper 12 — companion to Paper 11)
+  lattice-qft-test.html              (Paper 13)
+  escrow-spacetime.html              (Paper 14)
+  nesc-recipe.html                   (Paper 15)
+  compton-corollary.html             (Paper 16)
 
 assets/
   images/               — Publication figures and hero art
@@ -48,7 +52,7 @@ Each scientific paper is published in three surfaces:
 2. **Labs repo** — `github.com/Windstorm-Labs/<paper-slug>` — experimental code, data, and plots (where the paper is empirical).
 3. **This website** — the long-form article (`articles/<paper-slug>.html`), plus arc-node / Track-2 / pub-card entries on the homepage.
 
-**Zenodo DOIs:** Track 1 — all nine papers deposited (latest: Paper 7 [10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582) · Paper 8 [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827) · Paper 9 [10.5281/zenodo.19672921](https://doi.org/10.5281/zenodo.19672921)). Track 2 — Paper 10 [10.5281/zenodo.20014391](https://doi.org/10.5281/zenodo.20014391) · Paper 11 [10.5281/zenodo.20032023](https://doi.org/10.5281/zenodo.20032023) · Paper 12 [10.5281/zenodo.20041992](https://doi.org/10.5281/zenodo.20041992) · Paper 13 [10.5281/zenodo.20057538](https://doi.org/10.5281/zenodo.20057538).
+**Zenodo DOIs:** Track 1 — all nine papers deposited (latest: Paper 7 [10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582) · Paper 8 [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827) · Paper 9 [10.5281/zenodo.19672921](https://doi.org/10.5281/zenodo.19672921)). Track 2 — Paper 10 [10.5281/zenodo.20014391](https://doi.org/10.5281/zenodo.20014391) · Paper 11 [10.5281/zenodo.20032023](https://doi.org/10.5281/zenodo.20032023) · Paper 12 [10.5281/zenodo.20041992](https://doi.org/10.5281/zenodo.20041992) · Paper 13 [10.5281/zenodo.20057538](https://doi.org/10.5281/zenodo.20057538) · Paper 14 [10.5281/zenodo.20126091](https://doi.org/10.5281/zenodo.20126091) · Paper 15 [10.5281/zenodo.20145106](https://doi.org/10.5281/zenodo.20145106) · Paper 16 [10.5281/zenodo.20163451](https://doi.org/10.5281/zenodo.20163451).
 
 ## Related repositories
 
