@@ -388,7 +388,7 @@ tr:hover td { background: var(--surface); }
 
   <p>The Dissipative Decoder proved that silicon AI has no thermodynamic throughput basin. Its energy scales sub-linearly with model capacity. No quadratic discrimination cost. No efficiency peak. No physical speed limit.</p>
 
-  <p>And yet AI models converge on ~4.2 bits of effective information per token &mdash; right in the middle of the biological basin that they are supposedly exempt from.</p>
+  <p>And yet AI models converge on ~3.90 bits of effective information per token &mdash; near the low edge of the biological basin that they are supposedly exempt from.</p>
 
   <p>This is the paradox. If the physics doesn&rsquo;t constrain silicon, why does silicon land in the same neighborhood as the ribosome?</p>
 
@@ -398,15 +398,15 @@ tr:hover td { background: var(--surface); }
 
   <p>Every language model ever built was trained on human text. Human text was written by human brains. Human brains are biological serial decoders constrained by the throughput basin. The information density of human language &mdash; how surprising each word is, how predictable each sentence is &mdash; evolved to match the ~4&ndash;5 bit processing capacity of the biological systems that produce and receive it.</p>
 
-  <p>When GPT-4 processes English at ~4.4 bits per token, it is not obeying a law of silicon physics. It is learning a pattern that biological evolution burned into the structure of language over millions of years.</p>
+  <p>When GPT-4 processes English at ~3.90 bits per token, it is not obeying a law of silicon physics. It is learning a pattern that biological evolution burned into the structure of language over millions of years.</p>
 
   <h2>The Experiment</h2>
 
   <p>We measured bits-per-token (BPT) &mdash; the model&rsquo;s average surprise at each word &mdash; across seven types of data. Four models. Same hardware. Same methodology. We computed all BPT values <em>before</em> comparing them to the biological basin. If natural language had shown 2 bits or 9 bits, we would have reported that. This is a basin-blind design.</p>
 
-  <p>It showed 4.4 bits.</p>
+  <p>It showed 3.90 bits.</p>
 
-  <p>The ribosome processes information at 4.39 bits per codon. Claude Shannon, in 1951, estimated the entropy of printed English at approximately 1 bit per character &mdash; roughly 5 bits per word. Three independent measurements, three different methods, three different decades, the same number.</p>
+  <p>The ribosome processes information at 4.39 bits per codon. Claude Shannon, in 1951, estimated the entropy of printed English at approximately 1 bit per character &mdash; roughly 5 bits per word. Three independent measurements, three different methods, three different decades, the same neighborhood.</p>
 
   <h2>The Seven Corpora</h2>
 
@@ -421,37 +421,37 @@ tr:hover td { background: var(--surface); }
     <tbody>
       <tr>
         <td>Natural language (English prose)</td>
-        <td>4.4</td>
-        <td>In the basin. Matches the ribosome.</td>
+        <td>3.90</td>
+        <td>In the basin (low edge). Near the ribosome (4.39).</td>
       </tr>
       <tr>
         <td>Programming code (Python)</td>
-        <td>2.8</td>
+        <td>2.47</td>
         <td>Below the basin. More predictable than prose.</td>
       </tr>
       <tr>
         <td>DNA sequences</td>
-        <td>4.5</td>
+        <td>4.39</td>
         <td>In the basin &mdash; but a tokenizer artifact.</td>
       </tr>
       <tr>
         <td>Synthetic structured data</td>
-        <td>3.9</td>
+        <td>3.83</td>
         <td>In the basin &mdash; models exploit any pattern.</td>
       </tr>
       <tr>
         <td>Mathematical notation</td>
-        <td>7.5</td>
+        <td>7.00</td>
         <td>Above the basin. Unfamiliar to the model.</td>
       </tr>
       <tr>
         <td>Random printable text</td>
-        <td>8.5</td>
+        <td>8.27</td>
         <td>Far above. No patterns to exploit.</td>
       </tr>
       <tr>
         <td>Shuffled English (same words, random order)</td>
-        <td>10.8</td>
+        <td>10.64</td>
         <td>Far above. Structure destroyed.</td>
       </tr>
     </tbody>
@@ -486,7 +486,7 @@ tr:hover td { background: var(--surface); }
 
   <p>Identical. Exactly the same words at exactly the same frequencies. The Zipf distribution is preserved perfectly by shuffling.</p>
 
-  <p>Yet original English gives ~11 bits of effective information per token while shuffled English gives ~5 bits. Same statistics, 6 bits of difference. Word frequencies are necessary (they set the base rate) but they are not sufficient (structure determines the rest). Anyone who claims that the ~4.4-bit convergence is &ldquo;just Zipf&rsquo;s law&rdquo; is refuted by this single control: Zipf is identical in both conditions, but information extraction is completely different.</p>
+  <p>Yet shuffled English gives ~11 bits of effective information per token while original English gives only ~3.90 bits. Same statistics, ~6.7 bits of difference. Word frequencies are necessary (they set the base rate) but they are not sufficient (structure determines the rest). Anyone who claims that the ~3.90-bit convergence is &ldquo;just Zipf&rsquo;s law&rdquo; is refuted by this single control: Zipf is identical in both conditions, but information extraction is completely different.</p>
 
   <h2>The Energy Cost of Grammar</h2>
 
@@ -504,9 +504,9 @@ tr:hover td { background: var(--surface); }
 
   <p><strong>Link 2 (Established): Biology &rarr; Cognition.</strong> Neural systems built from biological substrates inherit the throughput constraint. Working memory: ~3.1 bits per item. Phoneme discrimination: ~4.2 bits. Evidence: Miller (1956), Miller &amp; Nicely (1955), decades of psychophysics.</p>
 
-  <p><strong>Link 3 (Proposed): Cognition &rarr; Language.</strong> Language evolved as a communication channel between brains constrained to ~4&ndash;5 bits per event. Speakers can only formulate ~4&ndash;5 bits of new information per utterance. Listeners can only decode ~4&ndash;5 bits per processing step. Language optimized to match. Evidence: BPT &asymp; 4.4 (this paper), Shannon&rsquo;s 1951 estimate, the UID literature. <em>Not yet causally demonstrated.</em></p>
+  <p><strong>Link 3 (Proposed): Cognition &rarr; Language.</strong> Language evolved as a communication channel between brains constrained to ~4&ndash;5 bits per event. Speakers can only formulate ~4&ndash;5 bits of new information per utterance. Listeners can only decode ~4&ndash;5 bits per processing step. Language optimized to match. Evidence: BPT &asymp; 3.90 (this paper), Shannon&rsquo;s 1951 estimate, the UID literature. <em>Not yet causally demonstrated.</em></p>
 
-  <p><strong>Link 4 (Proposed): Language &rarr; AI.</strong> Models trained on human language learn its statistical structure. The ~4.4-bit BPT reflects the information density that biological cognition selected for. Destroy the structure (shuffling) and BPT jumps to 10.8. Evidence: the shuffling experiment. <em>Not yet tested with a synthetic-training control.</em></p>
+  <p><strong>Link 4 (Proposed): Language &rarr; AI.</strong> Models trained on human language learn its statistical structure. The ~3.90-bit BPT reflects the information density that biological cognition selected for. Destroy the structure (shuffling) and BPT jumps to 10.8. Evidence: the shuffling experiment. <em>Not yet tested with a synthetic-training control.</em></p>
 
   <h2>What Would Falsify This</h2>
 
@@ -526,7 +526,7 @@ tr:hover td { background: var(--surface); }
 
   <p>The throughput basin constrains biology directly, through the physics of molecular discrimination. It constrains language indirectly, through the cognitive capacity of the brains that invented it. It constrains AI at one further remove, through the training data that carries language&rsquo;s biological fingerprint.</p>
 
-  <p>The ribosome found this limit through 3.8 billion years of evolution. Human language found it through millions of years of cognitive optimization. AI learned it in a few months of training on the internet. Three timescales, three substrates, one neighborhood: ~4.4 bits.</p>
+  <p>The ribosome found this limit through 3.8 billion years of evolution. Human language found it through millions of years of cognitive optimization. AI learned it in a few months of training on the internet. Three timescales, three substrates, one neighborhood: ~4 bits (3.90 for language, 4.39 for the ribosome).</p>
 
   <p>The fingerprint is everywhere. You just have to know what to look for.</p>
 
