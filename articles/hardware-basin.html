@@ -368,7 +368,7 @@ tr:hover td { background: var(--surface); }
       <span>v2.2 published</span>
     </div>
     <h1>The Hardware Basin:<br><span class="gradient">Why the Quantization Cliff Is About Where the Bits Go, Not How Many There Are</span></h1>
-    <p class="article-subtitle">Paper 9 of the Windstorm series. The quantization cliff depends on level allocation, not bit count &mdash; built across seven rounds with a thesis pivot in Round 5 and the full adversarial-defense framework in the formal paper.</p>
+    <p class="article-subtitle">Paper 9 of the Windstorm series. The quantization cliff depends on level allocation, not bit count &mdash; built across seven rounds with a thesis pivot in Round 3 and the full adversarial-defense framework in the formal paper.</p>
     <div class="figure" style="margin: 2rem auto;">
       <img src="../assets/images/web_hero_convergence.png" alt="Convergence hero image">
     </div>
@@ -492,7 +492,7 @@ tr:hover td { background: var(--surface); }
 
   <h2>How we built this answer in seven rounds</h2>
 
-  <p>The level-allocation thesis was not the starting hypothesis. It is the output of seven rounds of follow-up experiments built between April 11 and April 16. <strong>Round 5 produced a thesis pivot</strong> &mdash; we reframed the paper from &ldquo;the cliff is at INT4 universally&rdquo; to &ldquo;the cliff is about level allocation, not bit count&rdquo; &mdash; and the credibility of the final answer rests on the cumulative pressure each round applied to its predecessor.</p>
+  <p>The level-allocation thesis was not the starting hypothesis. It is the output of seven rounds of follow-up experiments built between April 11 and April 16. <strong>Round 3 produced a thesis pivot</strong> &mdash; we reframed the paper from &ldquo;the cliff is at INT4 universally&rdquo; to &ldquo;the cliff is about level allocation, not bit count&rdquo; &mdash; and the credibility of the final answer rests on the cumulative pressure each round applied to its predecessor.</p>
 
   <p><strong>Round 1.</strong> Anticipated objection: the Paper 7 cliff is just a bitsandbytes software bug; real arithmetic at low precision wouldn&rsquo;t have this problem. We tested in three escalating layers of hardware fidelity, including <strong>PyRTL gate-level multiply-accumulate simulation</strong> &mdash; actual hardware-description language, not numerical approximation. Cliff confirmed at every level. The cliff is in the math, not the software.</p>
 
@@ -508,7 +508,7 @@ tr:hover td { background: var(--surface); }
 
   <p><strong>Round 7 &mdash; the bulletproof.</strong> Final adversarial pressure. Replicate at the largest model with maximum statistical rigor. Pythia-1.4B at four quantization methods with five shuffle seeds, bootstrap 95% confidence intervals, Welch t-tests with Cohen&rsquo;s d effect sizes. <strong>The result is the &ldquo;Statistical decisiveness&rdquo; section above</strong>: <em>t</em> = 633.74, <em>p</em> = 2.84&times;10<sup>&minus;15</sup>, Cohen&rsquo;s <em>d</em> = 400.81. P-values below 10<sup>&minus;15</sup> are at the limit of standard double-precision arithmetic.</p>
 
-  <p>The paper that started as a confirmation of Paper 7&rsquo;s cliff (Round 1) became a design paper for inference hardware (Round 5 thesis pivot) with statistical decisiveness at the limit of numerical arithmetic (Round 7). The framework now prescribes specific design choices: build quantization lookup tables, validate end-to-end with structural-bonus testing, and don&rsquo;t deploy uniform-integer datapaths below INT8. The full per-round experiment reports are in the <a href="https://github.com/Windstorm-Labs/hardware-basin">Windstorm-Labs hardware-basin repository</a>; the formal scientific paper carries the same journey in §1.4 and the adversarial-review-defense table in §4.6.</p>
+  <p>The paper that started as a confirmation of Paper 7&rsquo;s cliff (Round 1) became a design paper for inference hardware (Round 3 thesis pivot) with statistical decisiveness at the limit of numerical arithmetic (Round 7). The framework now prescribes specific design choices: build quantization lookup tables, validate end-to-end with structural-bonus testing, and don&rsquo;t deploy uniform-integer datapaths below INT8. The full per-round experiment reports are in the <a href="https://github.com/Windstorm-Labs/hardware-basin">Windstorm-Labs hardware-basin repository</a>; the formal scientific paper carries the same journey in §1.4 and the adversarial-review-defense table in §4.6.</p>
 
   <hr>
 
