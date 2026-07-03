@@ -441,9 +441,9 @@ nav {
 
   <p>The paper includes a falsifiable prediction that any molecular biology lab can test: cool the ribosome.</p>
 
-  <p>The thermodynamic anchor predicts that ribosomal throughput depends on temperature through the kT term. At body temperature (310 K), throughput is 4.39 bits. At 280 K (about 7&deg;C — cold but not lethal for the ribosome's enzymatic function), the prediction shifts to approximately 4.86 bits.</p>
+  <p>The thermodynamic anchor predicts that ribosomal throughput depends on temperature through the kT term. At body temperature (310 K), throughput sits right at the alphabet ceiling of log<sub>2</sub>(21) = 4.39 bits — the most information a 21-way choice can carry. Because no channel can resolve more than 4.39 bits per codon, cooling below 310 K cannot raise the bit count further; instead the model's extra thermodynamic margin is predicted to appear as a lower translation error rate (higher fidelity). Warming above 310 K is predicted to lower resolved throughput below the ceiling (about 4.00 bits at 340 K).</p>
 
-  <p>This is testable. Run cell-free translation at 280 K. Measure the effective codon usage entropy. If it matches the prediction, the thermodynamic framework is confirmed. If it doesn't, something is wrong with the model.</p>
+  <p>This is testable. Run cell-free translation at 280 K and measure the misincorporation rate (translation fidelity). If cooling lowers the error rate as the thermodynamic framework predicts, the model is supported. If it doesn't, something is wrong with the model.</p>
 
   <p>We offer this prediction openly and without hedging. If it fails, we want to know.</p>
 
