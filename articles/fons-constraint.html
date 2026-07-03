@@ -402,17 +402,17 @@ nav {
 
   <h2>Two Roads to the Same Number</h2>
 
-  <p>The paper derives the number 64 from two completely independent mathematical frameworks developed decades apart by scientists who never worked on genetics.</p>
+  <p>The paper derives the number 64 from Shannon's channel capacity, then shows that a second, independent framework — Eigen's error threshold — is fully consistent with that answer. Two lines of reasoning, developed decades apart by scientists who never worked on genetics, meet at the same place.</p>
 
   <p><strong>The Shannon Path.</strong> In 1948, Claude Shannon published the foundational paper of information theory. Among many results, he showed that for any communication channel with a given noise level, there exists an optimal encoding strategy that maximizes the amount of information transmitted per symbol. Applied to a 4-letter alphabet (A, T, C, G) with realistic biological noise levels, Shannon's channel capacity theorem says the optimal codeword length is 3. Shorter codes (length 2, giving 16 options) don't carry enough information per event. Longer codes (length 4, giving 256 options) waste energy on distinctions the receiver can't reliably make. Three is the sweet spot: 4³ = 64.</p>
 
-  <p><strong>The Eigen Path.</strong> In 1971, chemist Manfred Eigen published his theory of molecular self-replication. He showed that self-replicating molecules face an "error catastrophe" — if the copying error rate is too high relative to the genome length, information is lost faster than selection can maintain it. This sets a maximum viable genome complexity for a given fidelity. Applied to a 4-letter molecular alphabet, Eigen's error threshold constrains viable encoding depth to — once again — three letters per codeword.</p>
+  <p><strong>The Eigen Path.</strong> In 1971, chemist Manfred Eigen published his theory of molecular self-replication. He showed that self-replicating molecules face an "error catastrophe" — if the copying error rate is too high relative to the genome length, information is lost faster than selection can maintain it. This sets a maximum viable genome length for a given copying fidelity. Eigen's threshold does not by itself pin down the codon length, but it confirms that a triplet, 64-codon code sits comfortably inside the viable regime — so the two frameworks agree rather than conflict.</p>
 
-  <p>Two fields. Two decades. Two completely different mathematical frameworks. One answer: 64.</p>
+  <p>Two fields. Two decades. Two completely different mathematical frameworks. One derives 64; the other confirms 64 is exactly what a viable self-replicator can sustain.</p>
 
   <h2>The Stability Test</h2>
 
-  <p>A coincidence that works at one noise level isn't very convincing. So we tested the Fons Constraint across nine orders of magnitude of error rate — from ε = 10⁻⁸ (essentially perfect copying) to ε = 10⁻¹ (catastrophically noisy).</p>
+  <p>A coincidence that works at one noise level isn't very convincing. So we tested the Fons Constraint across eight orders of magnitude of error rate — from ε = 10⁻⁸ (essentially perfect copying) to ε = 10⁻¹ (catastrophically noisy).</p>
 
   <p>The triplet optimum barely moves. Across this enormous range, the optimal encoding depth stays at 3. The genetic code is not perched on a fragile peak that a small perturbation would destroy. It is sitting in a wide, flat valley — the kind of feature that natural selection would find reliably, not the kind it would stumble onto by luck.</p>
 
@@ -424,7 +424,7 @@ nav {
 
   <p>The original hypothesis was that AI tokenizer vocabulary sizes would cluster near 64, mirroring the genetic code. They don't. Modern AI models use vocabularies of 30,000 to 250,000 tokens — nowhere near 64. This prediction was cleanly falsified.</p>
 
-  <p>But the falsification revealed something more interesting. While AI vocabularies don't cluster at 64, the effective information per processing event does cluster near the same value as the ribosome (~4.2 bits for AI vs. 4.39 bits for the ribosome). The vocabulary is irrelevant — what matters is the throughput per step. This observation became the seed for everything that followed.</p>
+  <p>But the falsification revealed something more interesting. While AI vocabularies don't cluster at 64, a frontier model's effective information per processing event — its per-token cross-entropy — is only a few bits, comparable to the ribosome's 4.39 bits rather than the tens of bits its vocabulary size would imply. We flag this as a conjecture, not a result: the vocabulary may be a dependent variable, with throughput per step the real constraint. That conjecture became the seed for everything that followed.</p>
 
   <p>At the Windstorm Institute, we lead with our falsified predictions because that's how science works. The wrong prediction about vocabulary size led directly to the right discovery about throughput constraints. If we had hidden the failure, we would have missed the insight.</p>
 
