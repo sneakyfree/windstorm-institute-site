@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>1,749 Models and a Flat Line — The Windstorm Institute</title>
+<title>A Bigger Dictionary Won't Help You Hear at a Party — The Windstorm Institute</title>
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
-<meta name="description" content="Why Bigger Vocabularies Don't Help AI — and What Actually Matters. By Grant Lavell Whitmer III.">
+<meta name="description" content="The Receiver-Limited Floor: we tested 1,749 AIs and found that a bigger vocabulary does nothing. It's the listener, not the dictionary. Paper 2 of the Windstorm series.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="The Windstorm Institute">
 <meta property="og:url" content="https://windstorminstitute.org/articles/receiver-limited-floor.html">
-<meta property="og:title" content="1,749 Models and a Flat Line — The Windstorm Institute">
-<meta property="og:description" content="The Receiver-Limited Floor: why bigger vocabularies don't help AI, and what actually matters. Paper 2 of the Windstorm series.">
+<meta property="og:title" content="A Bigger Dictionary Won't Help You Hear at a Party — The Windstorm Institute">
+<meta property="og:description" content="The Receiver-Limited Floor: we tested 1,749 AIs and found that a bigger vocabulary does nothing. It's the listener, not the dictionary. Paper 2 of the Windstorm series.">
 <meta property="og:image" content="https://windstorminstitute.org/assets/images/web_hero_convergence.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="1,749 Models and a Flat Line">
-<meta name="twitter:description" content="Why bigger vocabularies don't help AI — and what actually matters. Paper 2 of the Windstorm series.">
+<meta name="twitter:title" content="A Bigger Dictionary Won't Help You Hear at a Party">
+<meta name="twitter:description" content="The Receiver-Limited Floor: we tested 1,749 AIs and found that a bigger vocabulary does nothing. It's the listener, not the dictionary. Paper 2 of the Windstorm series.">
 <meta name="twitter:image" content="https://windstorminstitute.org/assets/images/web_hero_convergence.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -357,11 +357,11 @@ nav {
       <span>Paper 2</span>
       <span>April 2026</span>
       <span>~10 min read</span>
-      <span>Grant Lavell Whitmer III</span>
+      <span>Grant Whitmer</span>
       <span><a href="https://doi.org/10.5281/zenodo.19322972">doi: 10.5281/zenodo.19322972</a></span>
     </div>
-    <h1>1,749 Models and a Flat Line:<br><span class="gradient">Why Bigger Vocabularies Don't Help AI</span></h1>
-    <p class="article-subtitle">Why Bigger Vocabularies Don't Help AI — and What Actually Matters.</p>
+    <h1>A Bigger Dictionary Won't Help You Hear at a Party:<br><span class="gradient">we asked 1,749 AIs, and every one of them agreed</span></h1>
+    <p class="article-subtitle">Why cramming more words into an AI does nothing — and what actually sets the limit.</p>
     <div class="share-bar">
       <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+' '+encodeURIComponent(location.href),'_blank')">Share on X</button>
       <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href),'_blank')">Share on LinkedIn</button>
@@ -371,76 +371,55 @@ nav {
 
 <!-- ARTICLE BODY -->
 <article class="article-body">
-
   <div class="figure">
-    <img src="../assets/images/web_hero_convergence.png" alt="Convergence of language model compression across vocabulary sizes">
+    <img src="../assets/images/web_hero_convergence.png" alt="1,749 language models, and vocabulary size predicts nothing">
   </div>
 
-  <p><em>This article summarizes "The Receiver-Limited Floor: Rate-Distortion Bounds on Serial Decoding Throughput" (Zenodo, 2026).</em></p>
+  <p><em>The plain-language companion to "The Receiver-Limited Floor" (Zenodo, 2026). No math required. The full works are one click away at the bottom.</em></p>
 
   <hr>
 
-  <p>If you follow AI, you've heard the mantra: scale everything. More parameters. More training data. More tokens. The entire industry is built on the assumption that bigger is better.</p>
+  <p>If you've been anywhere near the AI conversation lately, you've heard the one commandment everybody chants: <em>bigger.</em> More parameters, more data, more everything. The whole industry runs on the cheerful assumption that if a little is good, a lot is better, and a whole lot is a press release.</p>
 
-  <p>The Receiver-Limited Floor paper tested one specific version of that assumption — that bigger vocabularies improve AI language model performance — and found it completely wrong.</p>
+  <p>So we went and poked one particular version of that belief with a stick. The belief was this: give an AI a bigger <em>vocabulary</em> — more word-chunks to work with — and it'll get smarter. Reasonable-sounding, isn't it? A person with a bigger vocabulary usually is sharper. We tested it on 1,749 different AIs. The belief did not survive.</p>
 
-  <h2>The Experiment</h2>
+  <h2>The Biggest Menu Survey Ever Run</h2>
 
-  <p>We evaluated 1,749 language models. This is, to our knowledge, the largest tokenizer-information survey ever conducted. The models spanned two major architectures (causal language models and encoder-decoder translation models), vocabulary sizes from a few thousand to over 250,000 tokens, and parameter counts from millions to tens of billions.</p>
+  <p>Seventeen hundred and forty-nine language models — as far as we know, the largest roundup of its kind anybody's ever bothered to do. Little ones, giant ones, translators, chatbots. Vocabularies ranging from a few thousand chunks to a quarter of a million. And for each one we measured a simple thing: how tightly can it compress a passage of English? (Tighter compression means the machine genuinely <em>gets</em> the language, the way a person who understands a joke can retell it in fewer words.)</p>
 
-  <p>For each model, we measured bits-per-byte (BPB) — the standard metric for how efficiently a model compresses English text. Lower BPB means better compression, which means the model understands the language better.</p>
+  <p>Then the one question that mattered: <strong>does a bigger vocabulary predict a smarter machine?</strong></p>
 
-  <p>Then we asked: does vocabulary size predict BPB?</p>
+  <h2>Behold, a Flat Line</h2>
 
-  <h2>The Result: A Flat Line</h2>
+  <p>No. Not a little bit no — <em>emphatically</em> no. The connection between vocabulary size and smarts came back at essentially zero. In the cold statistical terms: vocabulary size explains less than one percent of the difference between a good model and a bad one. Draw it on a graph and you get a line as flat as Kansas. A model with 32,000 word-chunks does about as well as one with 128,000. The extra hundred thousand words bought precisely nothing.</p>
 
-  <p>No. The correlation between vocabulary size and BPB is essentially zero.</p>
+  <p>Here's the homey version. Imagine you want to know whether the length of a restaurant's menu predicts how good the food is. You dutifully visit 1,749 restaurants. The verdict comes back: menu size explains 0.7% of how tasty the meal is. The menu, it turns out, is a decoy. What you actually wanted to ask about was <strong>the chef.</strong></p>
 
-  <p>For causal language models: &beta;&#8321; = 0.058, p = 0.643, R&sup2; = 0.007. That R&sup2; means vocabulary size explains less than 1% of the variation in model quality. The regression line is flat. A model with 32,000 tokens performs no differently from one with 128,000 tokens, all else being equal.</p>
+  <h2>Why? Because the Listener Sets the Limit</h2>
 
-  <p>To put this in human terms: imagine testing whether the size of a restaurant's menu predicts the quality of the food. You survey 1,749 restaurants. The answer comes back: menu size explains 0.7% of food quality. The menu is irrelevant. What matters is the chef.</p>
+  <p>Here is the heart of it, and it's the kind of idea that rearranges your furniture a little once it's in your head. A vocabulary is just a bag of labels. Making the bag bigger gives you more <em>ways to say</em> a thing — but it doesn't give you more <em>things worth saying</em>, and it doesn't help the listener on the other end hear you any better. The bottleneck was never the labels. It's the listener.</p>
 
-  <h2>Why This Happens: The Receiver Sets the Limit</h2>
+  <p>Picture yourself at a loud party, straining to catch what a friend is saying over the din. Would a bigger dictionary help? Of course not — you're not stuck for words, you're drowning in noise. The racket in the room decides how much you can actually make out per sentence, and no amount of extra vocabulary changes the racket. That racket has a name in the math — it's the fundamental noise of the channel — and it, not the size of your word-bag, sets the ceiling on how much real meaning gets through per step. Claude Shannon worked out the equations for exactly this back in the 1940s, and the AIs are simply obeying them, whether they know it or not.</p>
 
-  <p>The paper explains this result using rate-distortion theory — the branch of information theory that deals with lossy compression under constraints.</p>
+  <h2>The Ribosome Nods Along</h2>
 
-  <p>The key insight is that vocabulary is a <em>redundancy parameter</em>, not an <em>information parameter</em>. Making the vocabulary bigger gives you more ways to encode the same information, but it doesn't increase the amount of information the model can extract per processing step. The bottleneck is the receiver (the model's architecture and training), not the encoding (the tokenizer).</p>
+  <p>Now the part that gave us goosebumps. Remember that little machine from our first story, the ribosome, reading life's four-letter book? It faces the very same wall.</p>
 
-  <p>Think of it this way: if you're trying to hear someone at a loud party, getting a bigger dictionary doesn't help. The problem isn't your vocabulary — it's the noise. The noise determines how much information you can extract per word, regardless of how many words you know.</p>
+  <p>The ribosome has a tiny "vocabulary" — its sixty-four codons, sorting out twenty-odd amino acids — and it squeezes out about 4.4 bits of real information per step. Could it do better with a fatter vocabulary? No. A cleverer code? No. The floor is the floor. And here's the rhyme: today's AIs, with vocabularies a <em>thousand times</em> bigger than the ribosome's, built from silicon instead of protein, with nothing whatsoever in common historically — also come to rest in that same cramped little band of a few bits per step.</p>
 
-  <p>This is exactly what Shannon's rate-distortion theory predicts. For a serial decoder processing one symbol at a time through a noisy channel, there is a floor on how much information can be extracted per event, and that floor depends on the channel characteristics (alphabet size M and error rate &epsilon;), not on the vocabulary size of the encoding.</p>
+  <p>We should be honest about exactly what kind of rhyme this is, because it's easy to oversell and we'd rather not. The AI's few-bits number is measured per chunk-of-text; the ribosome's is per chemical decision. They're cousins, not twins — the same <em>neighborhood</em>, not the identical house number. But the striking thing stands: a thousandfold spread in vocabulary, and everybody still ends up on the same quiet street. The vocabulary didn't matter. The listener did. And both listeners — the one made of protein and the one made of math — bumped into a ceiling in roughly the same place.</p>
 
-  <h2>The Ribosome Connection</h2>
+  <h2>What This Means If You Build the Things</h2>
 
-  <p>Here's where it gets interesting. The ribosome — the molecular machine that translates genetic code into proteins — faces the same constraint.</p>
+  <p>If you happen to make AI for a living, the moral arrives with a bill attached: <strong>quit fiddling with the vocabulary and go fix the listener.</strong> Every hour poured into clever tokenizer tricks is an hour not spent on the thing that actually moves the needle — making each step of thinking squeeze more meaning out of the world. The data is blunt: at any sensible size, vocabulary is a solved problem. The hard, unsolved, interesting problem is the listener's efficiency — and there may be a hard wall there too.</p>
 
-  <p>The ribosome's "vocabulary" is 64 codons. Its effective alphabet is 21 (20 amino acids plus stop). Its throughput is 4.39 bits per codon. Could the ribosome do better with more codons? The Fons Constraint paper showed: no. Could it do better with a completely different encoding scheme? The Receiver-Limited Floor shows: no. The floor is the floor.</p>
+  <p>Same story for the hardware crowd and the folks paying the electric bill: it's not the granularity of the chopping that costs you, it's the size of the machine doing the thinking. Optimize joules-per-good-decision, not chunks-per-second.</p>
 
-  <p>AI models have vocabularies 1,000&times; larger than the ribosome. They have entirely different architectures, different substrates, different engineering histories. And they process about 4.2 bits of real information per token — landing in the same narrow bit-per-event band as the ribosome. (These figures are bits per byte/token of an English corpus, not the ribosome's bits per decoding event; the proximity is a same-regime observation, not a like-for-like match — see the measurement note below.)</p>
+  <h2>The Bigger Lesson</h2>
 
-  <p>The vocabulary doesn't matter. The receiver does. And both receivers — biological and silicon — hit approximately the same limit.</p>
+  <p>This was the second time we watched wildly different systems — a protein machine and a silicon one — trudge up to the exact same wall and stop. Life's code: a handful of bits per step. A giant modern AI: a handful of bits per step. A thousandfold difference in vocabulary buying almost no difference in throughput at all.</p>
 
-  <h2>What This Means for AI Engineering</h2>
-
-  <p>If you're building AI systems, the practical implication is immediate: stop investing in vocabulary optimization and start investing in architecture efficiency.</p>
-
-  <p>Every dollar spent on tokenizer engineering (merging strategies, byte-pair encoding variants, sentencepiece vs. tiktoken) is a dollar that could have gone toward architectural improvements that actually move the needle. The data says vocabulary is a solved problem at any reasonable size. The unsolved problem is making each processing step extract more real information — and the Receiver-Limited Floor suggests there may be a fundamental limit on that too.</p>
-
-  <p>For AI hardware: the finding extends to energy cost. In a follow-up analysis, we showed that vocabulary size also doesn't predict energy-per-token (p = 0.818, R&sup2; = 0.001). What predicts energy cost is model parameter count. What predicts compression quality is also model parameter count (and architecture quality). Vocabulary size predicts neither.</p>
-
-  <p>The message for GPU designers and data center operators is the same as for model developers: the bottleneck is the receiver's efficiency, not the encoding's granularity. Optimize joules per decision, not tokens per second.</p>
-
-  <h2>The Deeper Lesson</h2>
-
-  <p>The Receiver-Limited Floor was the second paper to show that information processing converges on the same constraints regardless of substrate. The genetic code uses 64 codons and gets 4.4 bits. AI uses 50,000 tokens and gets 4.2 bits. A 750&times; difference in vocabulary produces a 5% difference in throughput.</p>
-
-  <p>The rate-distortion surface doesn't care about your vocabulary. It cares about your noise and your discrimination cost. That realization drove us to ask: how many other systems hit this same wall? The answer is in Paper 3.</p>
-
-  <div class="callout">
-    <div class="callout-label">Measurement note added April 2026</div>
-    <p>The BPT values reported here &mdash; roughly 4.2 bits/token across the 1,749-model catalog, and the apparent match to the ribosome&rsquo;s 4.4 bits/codon &mdash; are measured in <strong>bits per BPE token</strong>, not bits per source symbol. The internal adversarial review of Paper 7 identified that BPT measurements are tokenizer-dependent: the same model on the same corpus returns different BPT values under different tokenization schemes. The numerical alignment with the ribosomal floor is therefore at the level of &ldquo;both systems land in the same narrow bit-per-event regime,&rdquo; not an exact match at the source-symbol level. A bits-per-source-symbol re-measurement across the 1,749-model catalog is now scoped under <a href="https://github.com/Windstorm-Institute/throughput-basin-origin/issues/1">Paper 7.1</a>.</p>
-    <p style="margin-top: 0.85rem;">The directional finding &mdash; that 1,749 models spanning three orders of magnitude in vocabulary all land in a narrow throughput band rather than spreading across the possible range &mdash; is not affected by the unit choice. Paper 7 then established that the band&rsquo;s width itself is data-driven: source entropy minus the structure a decoder can exploit.</p>
-  </div>
+  <p>The universe, it seems, doesn't care how big your dictionary is. It cares about the noise, and it cares about how hard it is to tell one thing from another. Which raised an irresistible question: how many <em>other</em> systems are quietly obeying this same wall? Nature, music, memory, machines? That headcount is Paper 3 — and the tally is bigger than you'd think.</p>
 
   <hr>
 
@@ -450,7 +429,6 @@ nav {
     Code &amp; data: <a href="https://github.com/Windstorm-Institute/receiver-limited-floor">github.com/Windstorm-Institute/receiver-limited-floor</a><br>
     <a href="https://doi.org/10.5281/zenodo.19322972">Download the full paper (PDF)</a>
   </p>
-
 </article>
 
 <!-- ARTICLE NAV -->
