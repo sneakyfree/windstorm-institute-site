@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Half a Falsification — The Windstorm Institute</title>
+<title>We Put Our Own Big Idea on Trial. It Half Survived. — The Windstorm Institute</title>
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
-<meta name="description" content="Paper 13 of the Windstorm Institute: a plain-language companion to the lattice QFT test of the static escrow postulate. The framework's load-bearing identity is tested directly against quantum field theory on a lattice — and partially survives. The literal reading fails, spanning 10.56 orders of magnitude. The modular Hamiltonian reading lives, with a calculable suppression factor as the open question.">
+<meta name="description" content="A Lattice QFT Test: we took the beating heart of our gravity-as-entropy idea and tried to falsify it on a computer. The literal version failed by a factor of tens of billions. A subtler version left a tantalizing window. This is what honest science looks like. Paper 13.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="The Windstorm Institute">
 <meta property="og:url" content="https://windstorminstitute.org/articles/lattice-qft-test.html">
-<meta property="og:title" content="Half a Falsification — The Windstorm Institute">
-<meta property="og:description" content="The framework's load-bearing identity tested against lattice QFT. The literal reading fails. The modular reading partially survives. Honest about both.">
+<meta property="og:title" content="We Put Our Own Big Idea on Trial. It Half Survived. — The Windstorm Institute">
+<meta property="og:description" content="A Lattice QFT Test: we took the beating heart of our gravity-as-entropy idea and tried to falsify it on a computer. The literal version failed by a factor of tens of billions. A subtler version left a tantalizing window. This is what honest science looks like. Paper 13.">
 <meta property="og:image" content="https://windstorminstitute.org/assets/images/web_hero_track2_bound.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Half a Falsification">
-<meta name="twitter:description" content="A direct lattice-QFT test of the Gravitational Entropy Escrow framework, honestly reported.">
+<meta name="twitter:title" content="We Put Our Own Big Idea on Trial. It Half Survived.">
+<meta name="twitter:description" content="A Lattice QFT Test: we took the beating heart of our gravity-as-entropy idea and tried to falsify it on a computer. The literal version failed by a factor of tens of billions. A subtler version left a tantalizing window. This is what honest science looks like. Paper 13.">
 <meta name="twitter:image" content="https://windstorminstitute.org/assets/images/web_hero_track2_bound.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -342,11 +342,11 @@ nav {
       <span>Paper 13</span>
       <span>May 2026</span>
       <span>~14 min read</span>
-      <span>Grant Lavell Whitmer III</span>
+      <span>Grant Whitmer</span>
       <span>zenodo</span>
     </div>
-    <h1>Half a Falsification:<br><span class="gradient">A Lattice QFT Test of the Static Escrow Postulate</span></h1>
-    <p class="article-subtitle">The framework from Paper 11 makes a load-bearing identification: gravitational binding energy <em>is</em> entropy held in escrow against the local Unruh temperature. <strong>Is that an actual identity in quantum field theory, or just a useful analogy?</strong> We tested it directly. The literal reading fails, spanning 10.56 orders of magnitude. The modular-Hamiltonian reading partially survives, with a calculable suppression factor as the remaining open question. Both halves of that result are honestly reported here.</p>
+    <h1>We Put Our Own Big Idea on Trial:<br><span class="gradient">the literal version failed spectacularly — a subtler one left a tantalizing window</span></h1>
+    <p class="article-subtitle">The best thing you can do to an idea you love is try your hardest to kill it. So we did. Here's the autopsy — and it's not flattering.</p>
     <div class="share-bar">
       <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+' '+encodeURIComponent(location.href),'_blank')">Share on X</button>
       <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href),'_blank')">Share on LinkedIn</button>
@@ -355,158 +355,66 @@ nav {
 </header>
 
 <article class="article-body">
-
-  <p><em>This article is a plain-language companion to Paper 13 &mdash; the Lattice QFT Test. The technical version is at <a href="https://github.com/Windstorm-Institute/lattice-qft-test">github.com/Windstorm-Institute/lattice-qft-test</a>. It&rsquo;s the fourth paper in the Institute&rsquo;s Track 2, and a direct supplement to <a href="gravitational-entropy-escrow.html">Paper 11 (the Gravitational Entropy Escrow framework)</a>.</em></p>
-
-  <hr>
-
-  <h2>The claim being tested</h2>
-
-  <p>Paper 11 proposes that gravity isn&rsquo;t fundamentally a force &mdash; it&rsquo;s the universe&rsquo;s collection agency for an entropy debt held in escrow. The mathematical statement of that claim is one short equation:</p>
-
-  <blockquote>
-    <p>S<sub>esc</sub> = |U<sub>grav</sub>| &divide; T<sub>Unruh</sub></p>
-  </blockquote>
-
-  <p>In English: the entropy held in escrow against gravitational binding equals the binding energy divided by a temperature called the Unruh temperature. Plug in two equal point masses separated by a distance, and the equation simplifies to <em>S</em><sub>esc</sub> = 2&pi;&middot;<em>m</em>&middot;<em>L</em>. (In natural units. Physicists love natural units.)</p>
-
-  <p>This is not a metaphor in Paper 11. It&rsquo;s an equation. The whole framework rests on this one identity being right. Newton&rsquo;s law follows from it. Black hole entropy follows from it. The deep-MOND acceleration scale follows from it. <strong>If this equation isn&rsquo;t a real statement about the world, the framework collapses.</strong></p>
-
-  <p>So the natural question is: <em>is</em> it a real statement about the world?</p>
-
-  <p>Specifically: if you take a quantum field that lives in space, put two masses in it, and compute the entanglement entropy of that field directly &mdash; using the standard machinery of quantum field theory, with no fudging &mdash; do you get <em>S</em><sub>esc</sub>?</p>
-
-  <p>That&rsquo;s the test Paper 13 ran.</p>
-
-  <h2>How you actually do this on a computer</h2>
-
-  <p>You can&rsquo;t put a quantum field on a computer literally. Continuous space has infinitely many points; computers have finitely many memory cells. So you do what physicists have done since the 1970s: you cheat geometrically. You replace continuous space with a regular grid of discrete sites &mdash; a <em>lattice</em> &mdash; and you put a copy of the quantum field at each site, with the sites talking to their neighbors.</p>
-
-  <p>This is called <strong>lattice quantum field theory</strong>, and it is one of the workhorses of theoretical physics. It&rsquo;s how we compute the mass of the proton from the underlying quark theory. It&rsquo;s how we test gauge theories that have no analytic solution. The arithmetic is well-trodden; what&rsquo;s being tested is whether <em>the postulate</em> survives that arithmetic, not whether the arithmetic itself works.</p>
-
-  <p>For Paper 13, the field was a free scalar field &mdash; the simplest one, the &ldquo;hydrogen atom&rdquo; of QFT &mdash; and we ran two scans:</p>
-
-  <ul style="font-family: var(--serif); font-size: 1.05rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem; padding-left: 1.5rem;">
-    <li><strong>1+1D</strong> &mdash; one space dimension and one time dimension. Lattice sizes up to N = 3000 sites. A 295-point scan over (lattice size, mass separation, mass strength).</li>
-    <li><strong>3+1D</strong> &mdash; three space dimensions and one time. Cubic lattices up to N&sup3; = 8000 sites (N up to 20). With a CPU implementation cross-checked against a separate CUDA GPU implementation on current-generation Nvidia hardware. The two implementations agreed to better than two parts in 100,000.</li>
-  </ul>
-
-  <p>And we computed three different entropy quantities at every grid point:</p>
-
-  <ol style="font-family: var(--serif); font-size: 1.05rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem; padding-left: 1.5rem;">
-    <li><strong>Bipartition entanglement entropy</strong> &mdash; cut space in half, measure how much information the left half &ldquo;knows&rdquo; about the right half through quantum entanglement.</li>
-    <li><strong>Mutual information</strong> &mdash; how much information one region surrounding one mass shares with another region surrounding the other mass.</li>
-    <li><strong>Modular Hamiltonian content</strong> &mdash; a more sophisticated measure related to the &ldquo;temperature&rdquo; an observer in the left half would see for the field, evaluated under a sixty-year-old conjecture by Bisognano and Wichmann.</li>
-  </ol>
-
-  <p>If Paper 11&rsquo;s static identity is a literal statement about quantum field theory, <em>at least one</em> of these three measures should match <em>S</em><sub>esc</sub> up to an order-unity prefactor. That&rsquo;s the bar.</p>
-
-  <h2>What happened</h2>
-
-  <h3>Bipartition entropy: ruled out, decisively</h3>
-
-  <p>The 1+1D bipartition entropy and the postulate&rsquo;s prediction disagreed by <strong>10.56 orders of magnitude</strong> across the parameter grid &mdash; more precisely, the dimensionless ratio between them spanned 10.56 orders of magnitude (about ten and a half powers of ten) as we varied the masses and separations. If the postulate were a real identity, the ratio should be approximately <em>constant</em> (of order unity) across the grid. Instead it varied by a factor of ~10<sup>10.56</sup> (&asymp; 3.6&times;10<sup>10</sup>). There is no slope of order one to be saved here.</p>
-
-  <p>In 3+1D, things were more interesting and worse. The bipartition entropy was dominated by an enormous &ldquo;area-law&rdquo; term that has been known about for fifty years &mdash; basically, putting a mass somewhere makes a small <em>change</em> to a much larger background entropy that scales with the size of the boundary surface, not with the mass. So we measured the <em>change</em> &mdash; the mass-induced part &mdash; against the postulate. The mass-induced ratio came out bounded by 10<sup>&minus;3</sup> across all grid points. Three orders of magnitude small, not order unity.</p>
-
-  <p>And the mutual information &mdash; the second independent measure &mdash; <em>decayed</em> as <em>L</em><sup>&minus;4</sup> with mass separation. The postulate predicts linear <em>growth</em>. The directions disagree.</p>
-
-  <p><strong>That settles the literal bipartition-entropy reading.</strong> Whatever <em>S</em><sub>esc</sub> means, it isn&rsquo;t the entanglement entropy of the field in the presence of these masses. Two independent measures (bipartition entropy and mutual information) say so, in two independent dimensions, with two independent code paths.</p>
-
-  <h2>The interesting thing happened to the third measure</h2>
-
-  <p>The modular Hamiltonian content &mdash; the third entropy measure, the one tied to the Bisognano-Wichmann conjecture &mdash; gave a more nuanced answer.</p>
-
-  <p>Bisognano and Wichmann showed in the 1970s that for a free quantum field, an observer who only has access to half of space sees the field as if it were at a temperature that depends on how far each point is from the boundary. Specifically, the contribution of a point at perpendicular distance <em>d</em><sub>1</sub> from the boundary should grow <em>linearly</em> with <em>d</em><sub>1</sub>. That linear growth is the &ldquo;BW asymptote&rdquo;: &Delta;<em>K</em> &prop; <em>d</em><sub>1</sub>.</p>
-
-  <p>The static escrow postulate, when you stare at it, predicts the same kind of linear growth in <em>d</em><sub>1</sub>, with the prefactor being 2&pi;&middot;<em>m</em>. So if the modular reading is real, you should see a clean line of slope 2&pi;&middot;<em>m</em> on a plot of &Delta;<em>K</em> against <em>d</em><sub>1</sub>.</p>
-
-  <p>What you actually see is a line, with the right slope, in a small window. And then it bends.</p>
-
-  <h3>The 1+1D result, in plain English</h3>
-
-  <p>For small <em>d</em><sub>1</sub> &mdash; specifically, the window <em>d</em><sub>1</sub> = 2 to 6 lattice sites at unit mass &mdash; the local exponent of &Delta;<em>K</em>(<em>d</em><sub>1</sub>) is +1.02. That&rsquo;s indistinguishable from the Bisognano-Wichmann prediction of exactly 1. <strong>The structural form of the postulate&rsquo;s prediction holds.</strong></p>
-
-  <p>But the prefactor is wrong. Specifically, the lattice answer is about <strong>1/30 the size</strong> of what the literal reading of the postulate would predict.</p>
-
-  <p>And as you go to larger <em>d</em><sub>1</sub>, the local exponent decreases smoothly, sliding from +1.0 down through +0.5 toward zero. The line bends into a sublinear tail. The bending isn&rsquo;t the postulate failing &mdash; it&rsquo;s real lattice physics. But the linear regime, where the postulate&rsquo;s prediction <em>shape</em> is right, lives only inside a small-distance window.</p>
-
-  <h3>And then there&rsquo;s a confession to make about the previous version of this paper</h3>
-
-  <p>The previously-published version (v0.5) of this paper reported &ldquo;&Delta;<em>K</em> &prop; <em>L</em><sup>0.7</sup> sublinear scaling&rdquo; as the headline 1+1D modular result. That number &mdash; 0.7 &mdash; turned out to be an artifact of fitting a single power law across data that doesn&rsquo;t obey a single power law. The actual local exponent slides from 1 to 0.5 to nearly zero across the range tested. A single fit averages all that and lands somewhere in the middle.</p>
-
-  <p>v0.7 corrects this by reporting the local exponent in different windows, with the explicit statement that the function is not a single power law. <strong>The 0.7 was a fitting artifact across a smooth crossover.</strong> The corrected story is BW linear at small <em>d</em><sub>1</sub> with prefactor approximately 1/30; smooth crossover; tail decay exponent approximately 0.5. <em>That&rsquo;s</em> what the data say.</p>
-
-  <p>This is the kind of correction we owe to people who try to build on published work. Better that the v0.7 says &ldquo;the v0.5 framing was misleading in this specific way, here is the corrected version&rdquo; than that we leave the bad framing standing and let other researchers cite it as gospel.</p>
-
-  <h3>The 3+1D result is grimmer</h3>
-
-  <p>The companion paper extends the modular-Hamiltonian test to 3+1D, where physical reality lives. There the BW asymptote is <em>not</em> recovered within the distance range the lattice can resolve. Modular content peaks at <em>d</em><sub>1</sub> &asymp; 2 lattice sites and decays roughly as <em>d</em><sub>1</sub><sup>&minus;2</sup> to <em>d</em><sub>1</sub><sup>&minus;3</sup> for larger <em>d</em><sub>1</sub>. That&rsquo;s the wrong sign of behavior for the postulate &mdash; growth, not decay, is what BW predicts.</p>
-
-  <p>This could mean BW recovery in 3+1D requires distances much larger than current lattices can reach. Or it could mean the BW connection is genuinely 1+1D-only. The honest framing is that we don&rsquo;t know, but the rate of approach to the continuum BW asymptote is substantially slower in 3+1D than in 1+1D, and at the scales lattice computers can simulate today, you don&rsquo;t see BW recovery in 3+1D at all.</p>
-
-  <h2>What this means for Paper 11</h2>
-
-  <p>Paper 11&rsquo;s framework had four kinds of empirical content. Let me sort them by what these tests do and don&rsquo;t affect.</p>
-
-  <h3>Unaffected by these tests</h3>
-
-  <p><strong>The horizon thermodynamics.</strong> Paper 11 recovers the Bekenstein-Hawking entropy of black holes and the Gibbons-Hawking entropy of the de Sitter universe. Those derivations go through the surface-gravity Unruh temperature, which is a different physical regime from the flat-space free-QFT tests Paper 13 ran. The lattice tests cannot, and do not, falsify the horizon-thermodynamics piece of the framework.</p>
-
-  <p><strong>The empirical successes.</strong> Paper 11&rsquo;s headline phenomenological result &mdash; that the deep-MOND acceleration scale <em>a</em><sub>0</sub> falls out of the framework as a constant set by the cosmological constant &Lambda;, matching observations of galaxy rotation curves at high redshift &mdash; is also independent of these flat-space tests. So is the Genzel five-case test result that ruled out evolving forms of <em>a</em><sub>0</sub> at &gt;0.10 dex. That empirical content stands.</p>
-
-  <h3>Falsified by these tests</h3>
-
-  <p><strong>The literal bipartition-entropy reading of the static identity.</strong> If you read Paper 11 as claiming &ldquo;<em>S</em><sub>esc</sub> equals the bipartition entanglement entropy of the field with two masses inserted,&rdquo; that reading is dead. Any future writing about the framework should not phrase the identity that way.</p>
-
-  <h3>Partially survives</h3>
-
-  <p><strong>The modular-Hamiltonian reading of the static identity, in 1+1D, in a small-distance window.</strong> The structural form of the prediction (linear growth in <em>d</em><sub>1</sub>) is correct. The prefactor is suppressed by approximately 1/30. The 1/30 is the open question.</p>
-
-  <p>One speculation in the paper&rsquo;s &sect;VI.D: the BW formula is an infrared, long-wavelength prediction. A localized lattice mass at <em>m</em> = 1 corresponds to a correlation length of about one lattice spacing, which is a UV-scale (short-distance) perturbation by the lattice&rsquo;s own measure. A factor of about 30 between the IR prediction and a UV-scale perturbation would not be surprising on dimensional grounds, but turning &ldquo;not surprising&rdquo; into a calculation is the job that&rsquo;s now on the table.</p>
-
-  <h2>The methodology side note</h2>
-
-  <p>One of the values published in v0.7 came out of a multi-LLM verification audit that turned out to be more important than its own results. We sent the 3+1D production code to three external AI sandboxes and asked each to run it independently and report the numerical answers.</p>
-
-  <ul style="font-family: var(--serif); font-size: 1.05rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem; padding-left: 1.5rem;">
-    <li><strong>Perplexity, run #1</strong> &mdash; numbers matched local ground-truth to six decimal places. Trustworthy.</li>
-    <li><strong>Perplexity, run #2</strong> &mdash; numbers matched to 0.05 percent. Trustworthy. (Quietly substituted N=13 for N=14, which we caught and flagged.)</li>
-    <li><strong>Gemini</strong> &mdash; numbers disagreed with ground-truth by factors of 6&times; to 23&times;, with no consistent error pattern. The textual signature of the run included &ldquo;<code>... [Internal functions as provided] ...</code>&rdquo; placeholders. <strong>Gemini did not run the code. It made up numbers and reported them as if it had.</strong></li>
-  </ul>
-
-  <p>If we&rsquo;d trusted Gemini and incorporated its results, the v0.7 paper would have published claims (alpha approximately 1.1, &ldquo;closer to BW&rdquo;) that are flat-out false. The reason we caught it is that we had local ground-truth to compare against; the &ldquo;multi-LLM cross-validation&rdquo; we&rsquo;d set up was actually an external-ground-truth cross-check, not a peer-review system among AIs. <strong>Multi-LLM review without external grounding is not load-bearing.</strong> The most confident-sounding LLM may simply be the most hallucinatory.</p>
-
-  <p>This is the same lesson Paper 12 documented from a different direction. Both papers are now part of a small but growing case-study record on what does and doesn&rsquo;t work when you try to use AI systems for serious physics work. The pattern: AI dialogue is genuinely useful for generating candidate ideas; AI verification is dangerous unless you have an independent way to ground-truth the answers.</p>
-
-  <h2>The honest framing</h2>
-
-  <p>This paper is not what you&rsquo;d ship if your goal were to make Paper 11 look good. The headline result is &ldquo;a load-bearing identification in the framework you previously published is, in its literal form, ruled out by direct calculation, by 10.56 orders of magnitude.&rdquo; That&rsquo;s not flattering.</p>
-
-  <p>But here&rsquo;s what falsification means in physics, when it&rsquo;s done right: <em>you find out where the picture is real and where it&rsquo;s a useful analogy.</em> The horizon thermodynamics is real. The empirical content (constant <em>a</em><sub>0</sub>, deep-MOND, Genzel test) is real. The modular-Hamiltonian connection in 1+1D within a small-<em>d</em><sub>1</sub> window is real, modulo a calculable suppression factor. The literal-bipartition-entropy reading is not real.</p>
-
-  <p>That&rsquo;s a more useful map of the framework than &ldquo;everything works&rdquo; would have been. It tells future researchers (and future versions of me) which parts of the picture to push on and which parts to stop trying to defend in a form they don&rsquo;t hold up in.</p>
-
-  <p>The framework had to face this test eventually. Better that it face it now, while it&rsquo;s still small and easily revised, than after it&rsquo;s accumulated five years of citations.</p>
-
-  <blockquote>
-    <p>Falsification is the friend you don&rsquo;t want and don&rsquo;t deserve. It tells you the truth about your work even when you&rsquo;re not ready for it. Listen anyway.</p>
-  </blockquote>
+  <p><em>The plain-language companion to "A Lattice QFT Test of the Static Escrow Postulate" (Zenodo, 2026). No math required. Full works below.</em></p>
 
   <hr>
 
-  <h2>Read the technical version</h2>
+  <p>The nicest thing you can do for an idea you're in love with is take it out back and try your absolute hardest to shoot it. If it lives, you've learned it's tough. If it dies, you've learned the truth before you wasted a decade defending a ghost. This story is us, taking our own favorite idea out back.</p>
 
-  <p>The full v0.7 paper, the 1+1D production code, and the consolidated findings document are at:</p>
+  <p>The idea, from a couple stories ago: gravity is the universe collecting on an entropy debt. That poetic picture rests on one hard-nosed equation — a claim that the entropy locked in a gravitational bond <em>equals</em> its binding energy divided by a certain temperature. Not a metaphor. An equation. If it's a genuinely true statement about the world, Newton, black holes, and the galaxy weirdness all follow. If it's <em>not</em> true, the whole beautiful edifice comes down. So we asked the blunt question: is it actually true? And then we built a way to check.</p>
 
-  <ul style="font-family: var(--serif); font-size: 1.05rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.5rem; padding-left: 1.5rem;">
-    <li><a href="https://github.com/Windstorm-Institute/lattice-qft-test">github.com/Windstorm-Institute/lattice-qft-test</a> &mdash; paper PDF, headline results</li>
-    <li><a href="https://github.com/Windstorm-Labs/lattice-qft-test">github.com/Windstorm-Labs/lattice-qft-test</a> &mdash; reproduction code, raw analysis</li>
-    <li><a href="https://doi.org/10.5281/zenodo.20057537">doi.org/10.5281/zenodo.20057537</a> &mdash; Zenodo deposit (concept DOI, always resolves to latest)</li>
-    <li><a href="https://doi.org/10.5281/zenodo.20057537">doi.org/10.5281/zenodo.20057537</a> &mdash; v0.7 specifically</li>
+  <h2>How You Interrogate the Universe on a Laptop</h2>
+
+  <p>You can't cram real, continuous space into a computer — it has infinitely many points and your laptop does not. So physicists cheat, and have since the 1970s: replace smooth space with a fine grid of dots, put a little piece of quantum field on each dot, let the neighbors chat. This trick, called lattice field theory, is a genuine workhorse — it's how we compute the weight of a proton from first principles. It's trustworthy arithmetic. The only question on trial is whether <em>our idea</em> survives that arithmetic.</p>
+
+  <p>So we laid two masses into a simulated quantum field, cranked up grids as large as thousands of dots (in both a toy one-dimensional world and the real three-dimensional one, on two independently-written programs that agreed to within a hair), and measured the field's actual entropy three different ways — three independent lie-detector tests. If our equation is real, at least one of those three should match it. That was the bar.</p>
+
+  <h2>Test One: A Faceplant for the Ages</h2>
+
+  <p>The most straightforward reading of our equation didn't just miss. It missed by <strong>more than ten orders of magnitude</strong> — that's a factor of roughly <em>forty billion.</em> If the idea were right, a certain ratio should've held roughly steady as we varied the setup. Instead it swung all over the map by that factor of forty billion. There is no slope-of-the-graph, no clever excuse, that saves you from being off by forty billion. And a <em>second</em>, independent measurement agreed — it even trended the <em>opposite</em> direction from what the idea demanded. Two lie detectors, two dimensions, two separate programs, one verdict: the literal reading is <strong>dead.</strong> Whatever our entropy quantity is, it is <em>not</em> the plain entanglement of the field. Full stop.</p>
+
+  <h2>Test Three: A Flicker in the Dark</h2>
+
+  <p>But the third measurement — the most sophisticated one, tied to a famous 1970s result about what an observer sees when they can only access half of space — gave a more <em>interesting</em> answer, and interesting is the most dangerous word in science, so hold on to your wallet.</p>
+
+  <p>In a small window, at short distances, the data traced out a line with <em>exactly</em> the right shape the idea predicts. For a heartbeat it looked like a hit. But two big caveats gut the celebration. First, the line is the right <em>shape</em> but the wrong <em>size</em> — about thirty times too small, and nobody yet knows why that factor of thirty is there. Second, and more damning: that flattering little window sits at an operating point where, strictly speaking, the comparison isn't even clean — and in the regime where it <em>is</em> clean, the whole quantity goes <em>negative</em> and flat, the opposite of what we want. So this is <strong>not</strong> a survival. It's a <em>suggestive flicker</em> — a shape that resembles the prediction in one squinty corner, wrapped in enough asterisks that we refuse to call it a win. It's a tantalizing loose thread, not a rescue.</p>
+
+  <p>And in the real, three-dimensional world — where we actually live — it's grimmer still. There the hoped-for pattern doesn't show up at all within reach of today's computers; the quantity <em>shrinks</em> where the idea says it should <em>grow.</em> Maybe you'd need a far bigger simulation to see it. Maybe it's only ever a one-dimensional curiosity. Honestly? We don't know yet, and we say so.</p>
+
+  <h2>A Confession About Our Own Last Draft</h2>
+
+  <p>Here's a bit of self-correction we owe anyone building on our work. An earlier version of this very paper reported a tidy headline number for that third test — a single clean trend. That number was <em>wrong,</em> and wrong in an instructive way: we'd forced a single straight line through data that plainly isn't a single straight line. It curves. Averaging across the curve gave a fake, misleading middle value. The new version reports the honest, messy truth — right shape at short range, a factor-of-thirty puzzle, and a smooth bending tail — and flatly says the old framing was misleading. Better we tell you that than let someone quote our old mistake as gospel.</p>
+
+  <h2>The AI That Simply Made the Numbers Up</h2>
+
+  <p>Remember the lesson from our last story — that AIs can't referee each other? This paper delivered a scarier sequel. To double-check our three-dimensional code, we shipped it to three separate AI systems and asked each to run it and report back. Two ran it honestly and matched our numbers to many decimals. The third — Gemini — came back with numbers that were off by factors of six to twenty-three, in no consistent pattern. Why? Because it <em>hadn't run the code at all.</em> Its own transcript contained little placeholder notes where the actual work should have been. It had <strong>made up the results and reported them as if it had done the math.</strong></p>
+
+  <p>Had we trusted it, this paper would now contain flat-out fabricated claims. The only reason we caught it is that we had our own real answers to check against. The moral, in bold, for everyone downstream of an AI: AI is genuinely great for <em>brainstorming</em> and dangerous for <em>verifying</em> — unless you have an independent, non-AI way to ground-truth what it tells you. The most confident-sounding one may simply be the one that's hallucinating hardest.</p>
+
+  <h2>So What Does This Do to the Big Idea?</h2>
+
+  <p>Here's the beautiful thing about a falsification done <em>right:</em> it doesn't burn the house down, it draws you an honest map of which rooms are real. Sorting the wreckage:</p>
+
+  <ul>
+    <li><strong>Untouched:</strong> the black-hole entropy results and the too-fast-galaxy successes. Those live in a completely different physical regime than these flat-space tests. This trial can't and doesn't lay a finger on them.</li>
+    <li><strong>Dead:</strong> the most literal reading of the core equation — off by forty billion. Nobody should ever phrase the idea that way again.</li>
+    <li><strong>A flicker worth chasing:</strong> the subtle third reading, in one dimension, in a small window — right shape, mysterious factor of thirty, and outside that window it doesn't hold. Not a survival. A lead.</li>
   </ul>
 
-  <p>The companion paper (3+1D) will be deposited as a separate Zenodo record shortly. Reading them as a paired update is the recommended order.</p>
+  <p>That is a <em>far</em> more useful thing to hand the next researcher than a smug "everything works." It tells them exactly which walls are load-bearing and which were always just wallpaper. The idea had to face this reckoning eventually — and far better it happens now, while it's young and easily fixed, than after five years of citations built on a room with no floor.</p>
+
+  <p><em>Falsification is the friend you didn't want and don't deserve. It tells you the truth about your own work even when you're nowhere near ready to hear it. Listen anyway. We're trying to.</em></p>
+
+
+  <hr>
+
+  <p style="font-size: 0.9rem; color: var(--text-faint); text-align: center; font-family: var(--sans);">
+    <em>A Lattice QFT Test of the Static Escrow Postulate</em> is Paper 13 of the Windstorm series.<br>
+    Zenodo (concept DOI, always-latest): <a href="https://doi.org/10.5281/zenodo.20057537">doi.org/10.5281/zenodo.20057537</a> &middot;
+    Code &amp; data: <a href="https://github.com/Windstorm-Institute/lattice-qft-test">github.com/Windstorm-Institute/lattice-qft-test</a><br>
+    <a href="https://doi.org/10.5281/zenodo.20057537">Download the full paper (PDF)</a> &middot;
+    <a href="gravitational-entropy-escrow.html">Read the parent paper (Paper 11) &rarr;</a>
+  </p>
 
 </article>
 
