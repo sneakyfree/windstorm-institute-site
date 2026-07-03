@@ -414,11 +414,10 @@ tr:hover td { background: var(--surface); }
 
   <p>We tested across all 24 layers of Pythia-410M. The cliff ratio (~4.5&times;) is consistent from layer 0 to layer 23. It does not get worse in deeper layers. It is a property of the weight distribution shape, not the network depth.</p>
 
-  <h2>One matrix defied the cliff</h2>
+  <h2>One matrix&rsquo;s cliff ratio was flat &mdash; because it had already collapsed</h2>
 
-  <p>One weight matrix in GPT-2-medium showed no cliff at all (ratio 0.9&times;). We investigated: this matrix has extreme kurtosis (124.75) and 80% sparsity. Translation: a few weights are very large, and the rest are near zero. Quantizing the near-zero bulk makes no difference because those weights don&rsquo;t contribute to the output.</p>
+  <p>One weight matrix in GPT-2-medium had a low cliff <em>ratio</em> (0.9&times;) &mdash; but not because it survived quantization: its INT4 cosine is already 0.28 (collapsed), so there is simply no further drop at INT3. We checked whether kurtosis or sparsity predicts cliff resistance across the six matrices we measured, and neither does: the heaviest-tailed, equally-sparse matrix (kurtosis 217) has the <em>worst</em> cliff ratio, while a light-tailed matrix is among the most resistant. The correlation is near zero (Pearson r = +0.27, Spearman &rho; = 0.09, n = 6).</p>
 
-  <p>This predicts that pruned models (deliberately sparsified) will be more robust to aggressive quantization. It also predicts that embedding layers (which tend to be sparser) will resist the cliff better than attention layers (which are denser). Both predictions are testable.</p>
 
   <h2>The optimal quantizer</h2>
 
@@ -494,7 +493,7 @@ tr:hover td { background: var(--surface); }
 
   <p>The level-allocation thesis was not the starting hypothesis. It is the output of seven rounds of follow-up experiments built between April 11 and April 16. <strong>Round 3 produced a thesis pivot</strong> &mdash; we reframed the paper from &ldquo;the cliff is at INT4 universally&rdquo; to &ldquo;the cliff is about level allocation, not bit count&rdquo; &mdash; and the credibility of the final answer rests on the cumulative pressure each round applied to its predecessor.</p>
 
-  <p><strong>Round 1.</strong> Anticipated objection: the Paper 7 cliff is just a bitsandbytes software bug; real arithmetic at low precision wouldn&rsquo;t have this problem. We tested in three escalating layers of hardware fidelity, including <strong>PyRTL gate-level multiply-accumulate simulation</strong> &mdash; actual hardware-description language, not numerical approximation. Cliff confirmed at every level. The cliff is in the math, not the software.</p>
+  <p><strong>Round 1.</strong> Anticipated objection: the Paper 7 cliff is just a bitsandbytes software bug; real arithmetic at low precision wouldn&rsquo;t have this problem. We tested in four layers of hardware fidelity, including <strong>PyRTL gate-level multiply-accumulate simulation</strong> &mdash; actual hardware-description language, not numerical approximation. The cliff shows up in the numerical linear-layer and full-block simulations. The gate-level MAC itself computes exactly at every precision, and attention patterns are preserved &mdash; which locates the cliff in the weight-quantization step, not the arithmetic circuit or the software.</p>
 
   <p><strong>Round 2 (four hours later).</strong> Anticipated objection: random-init weights aren&rsquo;t real trained models. We took a real Pythia-410M trained checkpoint and pushed every weight matrix through the same hardware quantizer. The cliff is present in every layer, with 4.5 to 4.9-times-worse degradation going from INT4 to INT3 across attention QKV, attention dense, and MLP matrices. Real trained weights show it identically to random init.</p>
 
