@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Vision Basin — The Windstorm Institute</title>
+<title>Every Sense Fills Up at a Different Line — The Windstorm Institute</title>
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
-<meta name="description" content="The Vision Basin (Paper 8 of the Windstorm series): cross-modal throughput measurement across language, vision, and audio. Each modality has its own basin, but the basin is always data-driven — source entropy modulated by exploitable structure.">
+<meta name="description" content="The Vision Basin: if the AI speed limit lives in the data, then eyes, ears, and words should each fill up at their own line. They do — and we published our own failed experiment right beside the winning one. Paper 8.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="The Windstorm Institute">
 <meta property="og:url" content="https://windstorminstitute.org/articles/vision-basin.html">
-<meta property="og:title" content="The Vision Basin — The Windstorm Institute">
-<meta property="og:description" content="Cross-modal throughput measurement across language, vision, and audio. Each modality has its own basin, but the basin is always data-driven. Paper 8 of the Windstorm series.">
+<meta property="og:title" content="Every Sense Fills Up at a Different Line — The Windstorm Institute">
+<meta property="og:description" content="The Vision Basin: if the AI speed limit lives in the data, then eyes, ears, and words should each fill up at their own line. They do — and we published our own failed experiment right beside the winning one. Paper 8.">
 <meta property="og:image" content="https://windstorminstitute.org/assets/images/web_hero_convergence.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Vision Basin">
-<meta name="twitter:description" content="Cross-modal throughput across language, vision, and audio. Each modality has its own basin, but the basin is always data-driven. Paper 8.">
+<meta name="twitter:title" content="Every Sense Fills Up at a Different Line">
+<meta name="twitter:description" content="The Vision Basin: if the AI speed limit lives in the data, then eyes, ears, and words should each fill up at their own line. They do — and we published our own failed experiment right beside the winning one. Paper 8.">
 <meta name="twitter:image" content="https://windstorminstitute.org/assets/images/web_hero_convergence.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -364,11 +364,11 @@ tr:hover td { background: var(--surface); }
       <span>Paper 8</span>
       <span>April 2026</span>
       <span>~15 min read</span>
-      <span>Grant Lavell Whitmer III</span>
+      <span>Grant Whitmer</span>
       <span>v2.2 published</span>
     </div>
-    <h1>The Vision Basin:<br><span class="gradient">How the Throughput Equation Generalizes to Sight and Sound</span></h1>
-    <p class="article-subtitle">Paper 8 of the Windstorm series. Cross-modal throughput measurement across language, vision, and audio &mdash; built across seven rounds of follow-up experiments with the full adversarial-defense framework in the formal paper.</p>
+    <h1>Every Sense Fills Up at a Different Line:<br><span class="gradient">the same speed limit shows up in sight and sound — at its own height for each</span></h1>
+    <p class="article-subtitle">If the limit lives in the data and not the machine, then pictures and sounds should each have their own basin. They do. (And yes, we'll show you the experiment that blew up in our faces.)</p>
     <div class="figure" style="margin: 2rem auto;">
       <img src="../assets/images/web_hero_convergence.png" alt="Convergence hero image">
     </div>
@@ -381,148 +381,61 @@ tr:hover td { background: var(--surface); }
 
 <!-- ARTICLE BODY -->
 <article class="article-body">
+  <div class="figure">
+    <img src="../assets/images/web_hero_bound.png" alt="Language, vision, and audio each have their own throughput basin">
+  </div>
 
-  <p><em>This article is a companion to Paper 8 &mdash; &ldquo;The Vision Basin: Cross-Modal Throughput Measurement Reveals Modality-Specific Information Extraction Rates&rdquo; (2026). The full manuscript is at <a href="https://github.com/Windstorm-Institute/vision-basin">github.com/Windstorm-Institute/vision-basin</a>.</em></p>
+  <p><em>The plain-language companion to "The Vision Basin" (Zenodo, 2026) — published, per house rules, with its own failed experiments in plain view. Full works below.</em></p>
 
   <hr>
 
-  <p>Paper 7 proved that language models converge on ~4 bits per token not because of anything in the architecture, but because that&rsquo;s how much information is in the training data. The natural question: what about images? What about audio? If the basin is genuinely about the data, then different data should sit at a different basin.</p>
+  <p>Our last story delivered a plot twist: that famous four-bit AI speed limit was never bolted inside the machine. It was hiding in the <em>words</em> — in how much genuine surprise ordinary language actually contains. The machine was just a mirror, faithfully reflecting whatever we fed it.</p>
 
-  <p>It does.</p>
+  <p>Which sets up an irresistible dare. If the limit really lives in the <em>food</em> and not the eater, then feeding a machine a different <em>kind</em> of food — pictures instead of prose, sound instead of sentences — ought to land it at a different line entirely. Same idea, different diet, different basin. So we went and fed the machines eyes and ears.</p>
 
-  <h2>Three modalities, three basins</h2>
+  <h2>Three Senses, Three Waterlines</h2>
 
-  <p>We measured throughput &mdash; how many bits of useful prediction a model extracts per source unit &mdash; across 12 models spanning language, vision, and audio. The results are not ambiguous:</p>
+  <p>Picture each kind of data as a different drink poured into the same glass. We measured how full the glass gets — how much real, useful prediction a machine squeezes out per bit of raw material — for words, for images, and for sound. And they filled to three plainly different waterlines. Words settle around one line. Pictures fill a good bit higher. Speech higher still, and music higher than speech. Every sense has its own basin, set by its own diet. The limit follows the food, exactly as the mirror story predicted.</p>
 
-  <p><strong>Language</strong> (9 models, Pythia 70M&ndash;1.4B + GPT-2 small&ndash;XL): 0.85&ndash;1.30 bits per source byte. Larger models extract more. The old &ldquo;&tau; = 4.16&rdquo; was bits per BPE token; in tokenizer-independent units, the basin is ~1 bit per byte.</p>
+  <p>And the controls behaved like perfect little soldiers: feed a machine pure static — visual snow, or the hiss of silence — and it extracts precisely <em>nothing</em>, because there's nothing in there to extract. Which is the whole point. It's not that the machine is dumb on noise; it's that noise is empty. The glass only fills as high as the drink allows.</p>
 
-  <p><strong>Vision</strong> (MAE-Base and MAE-Large): 1.33&ndash;1.36 bits per pixel. These are generative models that must reconstruct masked image patches &mdash; not classifiers that collapse images to labels. The classification floor is 0.02 bits per patch (essentially zero information retained).</p>
+  <h2>The Blender, Now With Pictures</h2>
 
-  <p><strong>Audio</strong> (real LJ Speech, 3,000 utterances, 5.5 hours): 1.89 bits per mel-spectrogram dimension. Music extracts even more: 2.69 bits per mel dimension. Controls are perfect: white noise and silence both extract exactly zero.</p>
+  <p>Remember the blender trick from our language story — scramble the words and watch meaning evaporate? We ran it on images. Trained a machine to predict pictures, then handed it those same pictures progressively shredded — quadrants swapped, blocks jumbled, pixels confettied. Sure enough, the intact photos were easier to predict than the scrambled ones. There's real, exploitable structure in a picture, just like in a sentence.</p>
 
-  <h2>The visual shuffling cascade</h2>
+  <p>But here's a lovely wrinkle: the visual "structure bonus" is about <em>ten times smaller</em> than language's. And that makes gorgeous sense once you say it out loud. Language is a skyscraper of nested structure — sounds inside words inside grammar inside meaning inside conversation, floor upon floor. A picture is a bungalow by comparison: nearby pixels, objects, scenes, and not much more. More floors of structure, more bonus. Language is simply the deeper, richer, more layered thing — and the numbers know it.</p>
 
-  <p>Paper 6 showed that destroying linguistic structure (shuffling words) raises BPT from ~4 to ~10.8 &mdash; a structural bonus of ~6.7 bits. We ran the same experiment on images.</p>
+  <h2>The Honest Part About What We're Measuring</h2>
 
-  <p>We trained a next-patch prediction model from scratch on STL-10 photographs (96&times;96), then evaluated it on progressively destroyed versions: quadrants shuffled, blocks shuffled, rows shuffled, pixels shuffled. The result: a spatial structural bonus of <strong>0.69 bits per pixel</strong>. Spatial hierarchy is exploitable &mdash; the model gets better predictions from intact images than from scrambled ones.</p>
+  <p>Here we have to slow down and be scrupulous, because it'd be easy to fudge and we won't. When we say a machine "extracts more" from images than from words, we're being a little loose — the yardsticks aren't identical. For language we measure how <em>badly</em> the machine is surprised (lower is better); for images we measure how much it <em>gains</em> by looking (higher is better). Those point in opposite directions, so you can't just line the raw numbers up and crown a winner. The honest, careful claim — the one that <em>does</em> hold across all three — is simpler and truer: in every sense, pure noise yields zero exploitable bonus, and real structure yields a real one. That's the universal law. The exact heights are apples and oranges, and we say so.</p>
 
-  <p>The visual bonus (0.69) is about 10&times; smaller than language&rsquo;s (~6.7), per source unit. This makes sense: language has deep compositional hierarchy &mdash; phonology, morphology, syntax, semantics, discourse, pragmatics &mdash; while images have shallower spatial hierarchy (pixel adjacency, objects, scenes). More levels of exploitable structure means more bits of bonus.</p>
+  <h2>The Experiment That Blew Up (and Why We're Telling You)</h2>
 
-  <h2>The ruler problem</h2>
+  <p>Now the part the institute exists for. We wanted the cleanest possible test: build fake images at carefully dialed levels of complexity and watch a machine, trained from absolute scratch, react. Our first attempt <em>failed.</em> Flat-out broke — numbers that made no sense. We could've quietly buried it and rerun until it looked pretty. Instead we diagnosed the flaw (a subtle contamination, cousin to a bug we'd caught in the language work), fixed it, and published the corpse right next to the cure.</p>
 
-  <p>Paper 7 proved that bits per token is tokenizer-dependent. We found the same problem in vision: <strong>bits per pixel depends on patch size.</strong></p>
+  <p>The clean redo taught us something we'd have gotten wrong otherwise, and it's worth being precise about. On <em>unpredictable</em> images — various flavors of noise — the machine's error doesn't climb neatly with complexity the way we'd first assumed. It flattens out, because past a certain point noise is just noise; you can't predict any of it, so more "complexity" doesn't make it harder in the way you'd expect. The real, unmistakable signal is elsewhere: hand the machine images with genuine <em>structure</em> — gradients, blob-like objects — and it reconstructs them about <strong>six times better</strong> than noise of the same raw messiness. The machine compresses what's compressible and shrugs at what isn't. That's the visual echo of the whole arc: what you carry equals what's there, minus what you can cleverly predict away.</p>
 
-  <p>We trained the same model at six patch sizes (8&times;8 through 48&times;48) and measured bits per pixel. It varies by 4&times; &mdash; from 1.19 at 8&times;8 to 0.29 at 48&times;48. Larger patches cover more pixels, which mechanically changes the per-pixel number without changing how much the model actually learned.</p>
+  <h2>Careful With That Four-Bit "Coincidence"</h2>
 
-  <p>This is the visual version of Paper 7&rsquo;s R5 finding: the measurement depends on the ruler. For text, the ruler is the tokenizer. For images, the ruler is the patch size. For audio, it&rsquo;s the mel-spectrogram parameters. Comparing throughput across modalities requires a universal ruler that nobody has yet built.</p>
+  <p>Somebody always notices that natural images clock in around four bits per pixel while natural language sits near four bits per chunk, and gets excited about a cosmic constant. We had to talk ourselves down from that ledge, and then talk you down too. The image number isn't fixed — it slides around depending on the resolution and which compressor you use. Shrink the picture and the number changes. It's a coincidence wearing a convincing costume, not a law of nature. We'd rather kill our own darling than let you cite a mirage.</p>
 
-  <h2>The visual entropy tracking curve</h2>
+  <h2>What It All Means</h2>
 
-  <p>If the visual basin is genuinely data-driven, then images with more complexity should produce higher reconstruction loss in a generative vision model. We tested this using a Masked Autoencoder (MAE-Base) on synthetic images at controlled complexity levels plus real photographs (CIFAR-10):</p>
+  <p>There is no single magic speed-limit number ruling over all of reality. There's a <em>rule,</em> and the rule spits out a different number for every kind of data: about one line for words, higher for pictures, higher still for sound. Each sense has its own basin, and every basin obeys the same simple recipe — how much is really in there, minus how much a good student can already guess.</p>
 
-  <table style="margin: 1.5rem auto; border-collapse: collapse; font-family: var(--sans); font-size: 0.95rem;">
-    <tr style="border-bottom: 2px solid var(--text-faint);">
-      <th style="padding: 0.5rem 1rem; text-align: left;">Image Type</th>
-      <th style="padding: 0.5rem 1rem; text-align: right;">MAE Loss</th>
-      <th style="padding: 0.5rem 1rem; text-align: right;">Bits/Pixel Est</th>
-    </tr>
-    <tr><td style="padding: 0.4rem 1rem;">Uniform gray</td><td style="padding: 0.4rem 1rem; text-align: right;">0.000</td><td style="padding: 0.4rem 1rem; text-align: right;">0.00</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Gradient</td><td style="padding: 0.4rem 1rem; text-align: right;">0.000</td><td style="padding: 0.4rem 1rem; text-align: right;">0.00</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">CIFAR-10 (real photos)</td><td style="padding: 0.4rem 1rem; text-align: right;">0.071</td><td style="padding: 0.4rem 1rem; text-align: right;">0.14</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Gaussian noise</td><td style="padding: 0.4rem 1rem; text-align: right;">1.135</td><td style="padding: 0.4rem 1rem; text-align: right;">2.14</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Uniform noise</td><td style="padding: 0.4rem 1rem; text-align: right;">1.647</td><td style="padding: 0.4rem 1rem; text-align: right;">2.41</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Random 4&times;4 blocks</td><td style="padding: 0.4rem 1rem; text-align: right;">1.797</td><td style="padding: 0.4rem 1rem; text-align: right;">2.47</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Random 16&times;16 blocks</td><td style="padding: 0.4rem 1rem; text-align: right;">2.605</td><td style="padding: 0.4rem 1rem; text-align: right;">2.74</td></tr>
-  </table>
-
-  <p>The ordering is exactly what the data-driven hypothesis predicts. Trivially predictable images (uniform, gradient) have near-zero loss. Real photographs (CIFAR-10) have very low loss because natural images have massive exploitable structure &mdash; spatial coherence, object regularity, texture patterns. Random noise is hard to predict. The most difficult case is random 16&times;16 blocks: each patch is a random color, and the MAE&rsquo;s 16&times;16 patches see no useful spatial context at all.</p>
-
-  <p>A ViT-Base classifier confirms this from the discriminative side: output entropy is 3.6 bits for real images (the model is confident) versus 6.5&ndash;8.4 bits for synthetic patterns (the model is confused). The basin sits where the model can exploit structure.</p>
-
-  <h2>Trained from scratch — the visual SYN-8</h2>
-
-  <p>The pretrained-MAE results above are evaluative, which a critical reviewer would correctly flag: the model&rsquo;s confidence on real images may reflect its training distribution rather than image entropy itself. To rule that out, we trained a 112-million-parameter ViT-MAE from scratch at each entropy level &mdash; the visual equivalent of Paper 7&rsquo;s SYN-8 experiment. Three random seeds per level, fifteen epochs each, on synthetic images at 224&times;224.</p>
-
-  <table style="margin: 1.5rem auto; border-collapse: collapse; font-family: var(--sans); font-size: 0.95rem;">
-    <tr style="border-bottom: 2px solid var(--text-faint);">
-      <th style="padding: 0.5rem 1rem; text-align: left;">Image Type</th>
-      <th style="padding: 0.5rem 1rem; text-align: right;">Approx Entropy</th>
-      <th style="padding: 0.5rem 1rem; text-align: right;">Eval Loss (mean ± std)</th>
-    </tr>
-    <tr><td style="padding: 0.4rem 1rem;">Uniform color</td><td style="padding: 0.4rem 1rem; text-align: right;">~0 bits</td><td style="padding: 0.4rem 1rem; text-align: right;">0.000001 ± 0.000000</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Natural-like (gradients + objects)</td><td style="padding: 0.4rem 1rem; text-align: right;">structured</td><td style="padding: 0.4rem 1rem; text-align: right;">0.014 ± 0.000</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">4-color blocks</td><td style="padding: 0.4rem 1rem; text-align: right;">~2 bits</td><td style="padding: 0.4rem 1rem; text-align: right;">0.065 ± 0.025</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">16-color blocks</td><td style="padding: 0.4rem 1rem; text-align: right;">~4 bits</td><td style="padding: 0.4rem 1rem; text-align: right;">0.076 ± 0.004</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Gaussian noise</td><td style="padding: 0.4rem 1rem; text-align: right;">~7 bits</td><td style="padding: 0.4rem 1rem; text-align: right;">0.058 ± 0.000</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">64-color pixels</td><td style="padding: 0.4rem 1rem; text-align: right;">~6 bits</td><td style="padding: 0.4rem 1rem; text-align: right;">0.084 ± 0.001</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Uniform noise</td><td style="padding: 0.4rem 1rem; text-align: right;">~8 bits</td><td style="padding: 0.4rem 1rem; text-align: right;">0.083 ± 0.000</td></tr>
-  </table>
-
-  <p>The two key results: trivially predictable images (uniform) reconstruct perfectly, and the natural-like images with exploitable spatial structure (gradients, blob-shaped objects) reconstruct <strong>six times better</strong> than uniform noise of similar entropy. The MAE learns to compress what is compressible. This is the visual equivalent of f(structural_depth) from Paper 7 &mdash; the basin sits at source entropy minus exploitable structure, in vision just as in language. Welch&rsquo;s t-test comparing uniform noise against uniform color: t = 249,994, p = 1.6 &times; 10<sup>&minus;11</sup>, Cohen&rsquo;s d = 204,119.</p>
-
-  <h2>The 4-bit coincidence</h2>
-
-  <p>Natural images contain about 4.0 bits per pixel under WebP lossless compression. Natural language sits at about 4.16 bits per token. The numerical similarity is striking &mdash; but it&rsquo;s an artifact.</p>
-
-  <p>Visual source entropy is resolution-dependent. STL-10 at 96&times;96 gives 5.07 bpp under PNG. The same images resized to 224&times;224 give 3.20 bpp &mdash; the upsampling creates spatial redundancy that compression exploits. The &ldquo;4 bpp&rdquo; number depends on which resolution and which compressor you use. It is not a universal constant.</p>
-
-  <h2>Audio follows the same pattern</h2>
-
-  <p>We measured mel-spectrogram entropy across synthetic audio of increasing complexity:</p>
-
-  <table style="margin: 1.5rem auto; border-collapse: collapse; font-family: var(--sans); font-size: 0.95rem;">
-    <tr style="border-bottom: 2px solid var(--text-faint);">
-      <th style="padding: 0.5rem 1rem; text-align: left;">Audio Type</th>
-      <th style="padding: 0.5rem 1rem; text-align: right;">Mel Entropy (bits/frame)</th>
-    </tr>
-    <tr><td style="padding: 0.4rem 1rem;">Silence</td><td style="padding: 0.4rem 1rem; text-align: right;">0.00</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">AM sweep</td><td style="padding: 0.4rem 1rem; text-align: right;">5.30</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Pure 440 Hz tone</td><td style="padding: 0.4rem 1rem; text-align: right;">5.35</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Three-note chord</td><td style="padding: 0.4rem 1rem; text-align: right;">5.37</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Pink noise (1/f)</td><td style="padding: 0.4rem 1rem; text-align: right;">6.28</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">White noise</td><td style="padding: 0.4rem 1rem; text-align: right;">6.30</td></tr>
-  </table>
-
-  <p>The same pattern holds: silence has zero entropy, structured signals (tones, chords) sit around 5.3 bits, and random noise reaches 6.3 bits.</p>
-
-  <p>We also tested wav2vec2 (a speech recognition model) on these signals plus 200 real utterances from LJ Speech. The result mirrors the vision finding: <strong>real speech produces output entropy of just 0.095 bits/frame</strong> &mdash; far below any synthetic signal (0.6&ndash;3.0 bits). The model is extremely confident about real speech because it was trained on speech, just as the ViT is confident about real images because it was trained on ImageNet. In both cases, the basin sits where the model can exploit learned structure. Audio throughput tracks source complexity, just as vision and language do. Each modality has its own basin, but the basin is always data-driven.</p>
-
-  <h2>What this means</h2>
-
-  <p>The throughput basin is not a single number shared across modalities. It is a modality-specific equilibrium &mdash; each data type has its own entropy, its own exploitable structure, and its own basin. Language sits at ~1 bit per byte. Vision sits at ~1.3 bits per pixel. Audio speech sits at ~1.9 bits per mel dimension.</p>
-
-  <p>The equation from Paper 7 &mdash; BPT &asymp; source_entropy &minus; f(structural_depth) &mdash; holds qualitatively for all three. But the function f() and the definition of &ldquo;source unit&rdquo; differ across modalities. Establishing a modality-independent throughput metric &mdash; a universal ruler &mdash; remains the central open problem.</p>
-
-  <h2>How we built this answer in seven rounds</h2>
-
-  <p>The result above is not a single experiment. It is the cumulative output of seven rounds of follow-up work executed between April 11 and April 16. Each round was the deliberate response to an objection a careful reviewer would raise against the previous round. The credibility of the answer rests on what each round survived, not on any single test.</p>
-
-  <p><strong>Round 1.</strong> A first cascade test on small CIFAR-100 images (32&times;32 pixels) with a 14-million-parameter model. It showed a visual structural bonus exists. A reviewer would say: small model, low resolution, doesn&rsquo;t generalize.</p>
-
-  <p><strong>Round 2 (three hours later).</strong> Same cascade, on STL-10 images (96&times;96 &mdash; nine times more pixels), with a 33-million-parameter model and a finer cascade with five destruction levels. The bonus held at 0.69 bits per pixel.</p>
-
-  <p><strong>Round 3.</strong> Three concurrent experiments addressing three different reviewer objections at once. We tested with pretrained MAE-Base and MAE-Large &mdash; real production-scale vision models. We swept patch sizes from 8&times;8 to 48&times;48 and discovered bits-per-pixel varies four-fold with patch size: <strong>patch size acts as a visual tokenizer, the same metric problem we found for text in Paper 7</strong>. We also discovered visual entropy itself is resolution-dependent. We reported all three as methodological caveats, not contradictions.</p>
-
-  <p><strong>Round 4.</strong> Synthetic piano music (Round 4a) extracted 2.69 bits per mel-frame. A reviewer would say synthetic music isn&rsquo;t real audio. Round 4b replaced the corpus with 3,000 utterances of LJ Speech &mdash; real recorded human speech, three random seeds. Result: 1.886 ± 0.002 bits per mel-dim. The synthetic-vs-real gap is itself informative; synthetic music has more exploitable harmonic regularity than continuous speech.</p>
-
-  <p><strong>Round 5 &mdash; the documented failure.</strong> A reviewer would say real-world data conflates entropy with structure; you need a controlled ladder where you vary entropy independently. We built one. The first attempt failed: tracking ratios of 0.632, 2.998, 0.000, 0.116 &mdash; clearly broken. <strong>We did not bury the failure.</strong> We diagnosed the cause (a tokenizer-pretraining contamination, the visual analog of the Paper 7 B1 leakage) and rebuilt the experiment as Round 6.</p>
-
-  <p><strong>Round 6.</strong> The clean redo, described in detail above in the &ldquo;Trained from scratch&rdquo; section. 112-million-parameter ViT-MAE trained from absolute scratch on seven calibrated entropy levels, three random seeds each. Reconstruction loss tracks source entropy exactly among unstructured distributions, and structured naturalistic data achieves loss six times lower than uniform noise of equivalent entropy. Welch&rsquo;s <em>t</em> = 249,994, <em>p</em> = 1.6&times;10<sup>&minus;11</sup>, Cohen&rsquo;s <em>d</em> = 204,119. <strong>Round 5&rsquo;s failure became Round 6&rsquo;s bulletproof verification.</strong></p>
-
-  <p><strong>Round 7 &mdash; another negative result, also published.</strong> If patch size acts like a tokenizer, surely the bits-per-source-entropy ratio (model bits divided by gzip-source-entropy at that patch size) is the patch-invariant quantity? We tested directly. The ratio is not invariant either. Coefficient of variation: 0.367. <strong>We report the negative result honestly</strong> rather than hide it. Establishing a patch- and resolution-independent visual throughput metric remains an open methodological problem.</p>
-
-  <p>Two findings could have killed the Paper 7 generalization to vision: that the visual basin is just a metric artifact, or that the effect goes away under controlled-entropy conditions. Rounds 3 and 6 were built specifically to test those objections. Both survived. The full per-round experiment reports are in the <a href="https://github.com/Windstorm-Labs/vision-basin">Windstorm-Labs vision-basin repository</a>; the formal scientific paper carries the same journey in §1.3 and the adversarial-review-defense table in §4.4.</p>
+  <p>Which leaves one nagging skeptic's question still standing. We keep talking about these "bits" and these "basins" as if they're real, physical things. But are they? Or are they just bookkeeping — numbers on a spreadsheet with no teeth in the actual world? To answer <em>that,</em> we had to stop measuring software entirely and go all the way down to the metal: the literal switches on a silicon chip. That's Paper 9, and it's where the abstract finally gets its hands dirty.</p>
 
   <hr>
 
   <p style="font-size: 0.9rem; color: var(--text-faint); text-align: center; font-family: var(--sans);">
     <em>The Vision Basin</em> is Paper 8 of the Windstorm series.<br>
     Zenodo (concept DOI, always-latest): <a href="https://doi.org/10.5281/zenodo.19672827">10.5281/zenodo.19672827</a> &middot;
-    Current version v2.2 (April 2026): <a href="https://doi.org/10.5281/zenodo.19672828">10.5281/zenodo.19672828</a> &middot;
+    Current version v2.2 (April 2026): <a href="https://doi.org/10.5281/zenodo.19672827">10.5281/zenodo.19672827</a> &middot;
     Code &amp; data: <a href="https://github.com/Windstorm-Institute/vision-basin">github.com/Windstorm-Institute/vision-basin</a><br>
     <a href="https://github.com/Windstorm-Institute/vision-basin/blob/main/paper.pdf">Download the full paper (PDF)</a> &middot;
     <a href="https://github.com/Windstorm-Institute/vision-basin/blob/main/grandslam_supplementary.pdf">Grand Slam Supplementary Materials (PDF)</a>
   </p>
+
 
 </article>
 

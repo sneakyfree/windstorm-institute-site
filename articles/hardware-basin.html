@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Hardware Basin — The Windstorm Institute</title>
+<title>It's Not How Many Bits — It's Where You Spend Them — The Windstorm Institute</title>
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
-<meta name="description" content="The Hardware Basin (Paper 9 of the Windstorm series): the quantization cliff is about level allocation, not bit count. NF4 succeeds where symmetric INT4 collapses — and the same Lloyd-Max trick rescues end-to-end performance.">
+<meta name="description" content="The Hardware Basin: AI models shatter when you shrink them below 4 bits — but the cliff isn't about how many bits you have. It's about where you put them. The same 4 bits, spent wisely, works fine. Paper 9.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="The Windstorm Institute">
 <meta property="og:url" content="https://windstorminstitute.org/articles/hardware-basin.html">
-<meta property="og:title" content="The Hardware Basin — The Windstorm Institute">
-<meta property="og:description" content="The quantization cliff is about level allocation, not bit count. NF4 succeeds where symmetric INT4 collapses — and the same Lloyd-Max trick rescues end-to-end performance. Paper 9.">
+<meta property="og:title" content="It's Not How Many Bits — It's Where You Spend Them — The Windstorm Institute">
+<meta property="og:description" content="The Hardware Basin: AI models shatter when you shrink them below 4 bits — but the cliff isn't about how many bits you have. It's about where you put them. The same 4 bits, spent wisely, works fine. Paper 9.">
 <meta property="og:image" content="https://windstorminstitute.org/assets/images/web_hero_convergence.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="The Hardware Basin">
-<meta name="twitter:description" content="The quantization cliff is about level allocation, not bit count. Paper 9 of the Windstorm series.">
+<meta name="twitter:title" content="It's Not How Many Bits — It's Where You Spend Them">
+<meta name="twitter:description" content="The Hardware Basin: AI models shatter when you shrink them below 4 bits — but the cliff isn't about how many bits you have. It's about where you put them. The same 4 bits, spent wisely, works fine. Paper 9.">
 <meta name="twitter:image" content="https://windstorminstitute.org/assets/images/web_hero_convergence.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -364,11 +364,11 @@ tr:hover td { background: var(--surface); }
       <span>Paper 9</span>
       <span>April 2026</span>
       <span>~15 min read</span>
-      <span>Grant Lavell Whitmer III</span>
+      <span>Grant Whitmer</span>
       <span>v2.2 published</span>
     </div>
-    <h1>The Hardware Basin:<br><span class="gradient">Why the Quantization Cliff Is About Where the Bits Go, Not How Many There Are</span></h1>
-    <p class="article-subtitle">Paper 9 of the Windstorm series. The quantization cliff depends on level allocation, not bit count &mdash; built across seven rounds with a thesis pivot in Round 5 and the full adversarial-defense framework in the formal paper.</p>
+    <h1>It's Not How Many Bits — It's Where You Spend Them:<br><span class="gradient">the same four bits can be genius or gibberish, depending on where they go</span></h1>
+    <p class="article-subtitle">AIs fall off a cliff when you shrink them past a point. Everyone assumed the cliff was a hard wall. It's not — it's a budgeting mistake.</p>
     <div class="figure" style="margin: 2rem auto;">
       <img src="../assets/images/web_hero_convergence.png" alt="Convergence hero image">
     </div>
@@ -381,145 +381,63 @@ tr:hover td { background: var(--surface); }
 
 <!-- ARTICLE BODY -->
 <article class="article-body">
+  <div class="figure">
+    <img src="../assets/images/web_hardware_cliff.png" alt="The quantization cliff is about level allocation, not bit count">
+  </div>
 
-  <p><em>This article is a companion to Paper 9 &mdash; &ldquo;The Hardware Basin: Why the Quantization Cliff Is About Level Allocation, Not Bit Count&rdquo; (2026). The full manuscript is at <a href="https://github.com/Windstorm-Institute/hardware-basin">github.com/Windstorm-Institute/hardware-basin</a>.</em></p>
+  <p><em>The plain-language companion to "The Hardware Basin" (Zenodo, 2026). No math required. Full works below.</em></p>
 
   <hr>
 
-  <p>Paper 7 found something that looked simple: language models collapse when you quantize their weights below 4 bits. INT4 works. INT3 doesn&rsquo;t. The cliff is sharp and universal across eight models.</p>
+  <p>Time to get our hands dirty. For eight papers we've talked about "bits" as if they're real, weighty things in the world. A fair skeptic could push back: <em>says who?</em> Maybe it's all just bookkeeping. So we went down to the metal — to the actual on-off switches inside a computer chip — to see whether these abstractions leave real fingerprints on real silicon. They do. And chasing them, we caught ourselves believing something that turned out to be flat wrong.</p>
 
-  <p>We thought we were looking at a floor &mdash; a hard physical limit baked into the mathematics of low-precision arithmetic. We were wrong. We were looking at a wall built by a specific quantization method, not by the arithmetic itself.</p>
+  <p>Here's the setup. To make AIs smaller and cheaper, engineers "quantize" them — round off the millions of numbers inside to use fewer digits. And there's a notorious cliff: shrink a model to four digits and it hums along fine; shave it to three and it collapses into babbling nonsense. Sharp. Reliable. Everybody in the field treats it as a hard floor of physics — the arithmetic simply gives out below four.</p>
 
-  <h2>The experiment that changed the story</h2>
+  <p><strong>We thought so too. We were wrong.</strong> It's not a floor built by the arithmetic. It's a wall built by a <em>sloppy budgeting habit</em> — and once you fix the habit, the wall moves.</p>
 
-  <p>We loaded Pythia-1.4B (a real, pretrained language model with 1.4 billion parameters) and quantized it two ways, both to 4-bit weights:</p>
+  <h2>Same Budget, Wildly Different Outcomes</h2>
 
-  <p><strong>Symmetric quantization</strong> &mdash; the simplest method, and what basic integer hardware does. Place 15 quantization levels uniformly from the minimum weight to the maximum weight. Result: <strong>BPT = 16.87</strong>. Catastrophic. The model outputs gibberish.</p>
+  <p>Watch this. We took one real AI and squeezed it down to four digits <em>two different ways</em> — same budget, exact same number of "slots" to work with.</p>
 
-  <p><strong>NF4 (normal-float-4)</strong> &mdash; a smarter method. Place the same 15 levels at the quantiles of a normal distribution, so more levels sit near zero (where most weights cluster) and fewer levels sit in the sparse tails. Result: <strong>BPT = 3.90</strong>. Operational. The model works fine.</p>
+  <p>The dumb way spreads its four-digit budget out evenly, like a tourist who blows equal cash on every souvenir stand regardless of what's worth buying. Result: <strong>total gibberish.</strong> The machine drools. The smart way spends the very same budget where it actually matters — piling most of the slots near the values the AI uses constantly, and barely any out in the boondocks it rarely visits. Result: <strong>the machine works perfectly.</strong></p>
 
-  <p>Same bit count. Same model. Same data. One works, one doesn&rsquo;t. The difference is entirely in <em>where</em> the bits are spent.</p>
+  <p>Same model. Same data. Same number of bits, right down to the digit. One produces Shakespeare, the other produces static. The <em>only</em> difference is <em>where the bits got spent.</em> The cliff was never about how big your paycheck is. It's about whether you blow it on lottery tickets or groceries.</p>
 
-  <h2>Why it matters</h2>
+  <h2>Why an Engineer Should Care a Lot</h2>
 
-  <p>If the cliff were at a fixed bit count, hardware designers would need to build wider integer datapaths &mdash; INT8 everywhere, no shortcuts. Expensive, power-hungry, physically large.</p>
+  <p>This isn't trivia — it's a hardware roadmap. If the cliff were a real four-bit floor, chip designers would have to build big, hot, expensive circuitry to keep everything at eight digits, no shortcuts allowed. But since the cliff is really a <em>budgeting</em> problem, the fix is almost free: add a tiny cheat sheet to the chip — a little lookup table that says "spend the bits <em>here,</em> not there." That scrap of silicon costs next to nothing, yet it drops the safe floor from eight digits to four. That's cutting an AI's memory appetite in half for pocket change. Build lookup tables, the paper says, not wider datapaths.</p>
 
-  <p>But the cliff is at a <em>quality threshold</em> for level allocation. Hardware that supports non-uniform quantization tables &mdash; where each 4-bit code maps to a non-uniform float value, optimized for the weight distribution &mdash; can operate at 4 bits. Hardware that supports only uniform integers needs 8 bits to achieve the same result.</p>
+  <h2>It Shows Up Everywhere We Look</h2>
 
-  <p>The practical implication: <strong>build lookup tables, not wider datapaths.</strong> A 16-entry lookup table per weight block costs almost nothing in silicon area, but it shifts the precision floor from INT8 to INT4 &mdash; a 2&times; reduction in memory bandwidth and storage.</p>
+  <p>We checked whether this was a fluke of one design. It wasn't. The cliff turns up across every kind of AI we tested — including one built on a completely different principle than the usual sort — because they all share one quiet trait: the millions of numbers inside them pile up in a bell-curve shape, thick in the middle and thin at the edges. And a bell curve is <em>exactly</em> the shape that rewards smart budgeting and punishes dumb budgeting. The cliff, in other words, is a fact about that shape — not about how deep or fancy the machine is.</p>
 
-  <h2>It&rsquo;s universal</h2>
+  <h2>A Detective Story We Have to Tell Straight</h2>
 
-  <p>We tested the cliff across four model architectures: three transformer variants (Pythia-160M, Pythia-1.4B, GPT-2-medium) and one state-space model (Mamba-370M). The cliff appears in all of them. Mamba uses fundamentally different computation (state-space dynamics instead of attention), but its weight matrices are still approximately Gaussian &mdash; and that&rsquo;s what the cliff is about.</p>
+  <p>Now, honesty, because we got a mild scare. One particular chunk of one model seemed weirdly immune to the cliff — it barely dropped when squeezed. For a moment it looked like we'd found a magic ingredient that grants cliff-resistance. We hadn't. When we looked closer, that chunk hadn't <em>survived</em> the squeeze at all — it had already <em>collapsed</em> a step earlier, so there was simply nothing left to fall. It's like praising a demolished building for not losing any more windows. We hunted for a real predictor of toughness — did "spikiness" or "sparseness" protect a chunk? — and came up empty. No magic ingredient. We report the dead end because a dead end honestly mapped is still a map.</p>
 
-  <p>We tested across all 24 layers of Pythia-410M. The cliff ratio (~4.5&times;) is consistent from layer 0 to layer 23. It does not get worse in deeper layers. It is a property of the weight distribution shape, not the network depth.</p>
+  <h2>The Clincher</h2>
 
-  <h2>One matrix defied the cliff</h2>
+  <p>And here's the result that nails the whole thesis to the wall. We pitted a <em>smartly</em>-budgeted three-digit model against a <em>dumbly</em>-budgeted four-digit one — that is, the frugal machine had a <em>smaller</em> paycheck. The frugal three-digit machine <em>won.</em> Fewer bits, spent wisely, beat more bits spent foolishly. Seven well-placed coins outperformed fifteen scattered ones. If the cliff were really about <em>how many</em> bits you have, that could never happen. It happened. Case closed: it was never the count. It was always the placement.</p>
 
-  <p>One weight matrix in GPT-2-medium showed no cliff at all (ratio 0.9&times;). We investigated: this matrix has extreme kurtosis (124.75) and 80% sparsity. Translation: a few weights are very large, and the rest are near zero. Quantizing the near-zero bulk makes no difference because those weights don&rsquo;t contribute to the output.</p>
+  <p>We also gave it the toughest possible exam — does the shrunk-down machine still genuinely <em>understand</em> language, or just fake it? (We used the blender test again: can it still tell real English from word-salad?) The smartly-budgeted version kept nearly all of its comprehension. The dumbly-budgeted one lost almost the entire thing — reduced to a machine that can't tell Shakespeare from a shredder. Same budget. Different spending. Everything hangs on the "where."</p>
 
-  <p>This predicts that pruned models (deliberately sparsified) will be more robust to aggressive quantization. It also predicts that embedding layers (which tend to be sparser) will resist the cliff better than attention layers (which are denser). Both predictions are testable.</p>
+  <h2>What It Means</h2>
 
-  <h2>The optimal quantizer</h2>
+  <p>So the bits are real after all. They leave hard, measurable fingerprints on physical silicon — you can watch an AI live or die by nothing more than <em>where</em> its handful of digits get placed. The "quantization cliff" that everyone took for a law of arithmetic turns out to be a law of <em>budgeting</em>, and budgeting is something engineers can fix with a cheap little cheat sheet rather than expensive extra hardware.</p>
 
-  <p>We tested five level-allocation strategies on real Pythia-410M weights at INT4:</p>
-
-  <p><strong>Symmetric uniform:</strong> cosine 0.905. <strong>NF4 (Gaussian quantiles):</strong> cosine 0.973. <strong>Lloyd-Max (mathematically optimal):</strong> cosine 0.990. <strong>Log-scale:</strong> cosine 0.965. <strong>Random (control):</strong> cosine 0.894.</p>
-
-  <p>Lloyd-Max at INT3 (cosine 0.965) is <em>better</em> than symmetric at INT4 (cosine 0.905). The optimal quantizer with 7 levels outperforms the naive quantizer with 15 levels. This is the strongest evidence that the cliff is about level quality, not level count.</p>
-
-  <h2>The structural bonus test</h2>
-
-  <p>Cosine similarity measures how well a single matrix survives quantization. But a language model is 24 layers of matrices chained together, and errors accumulate. The real question is: does the quantized model still <em>understand language</em>?</p>
-
-  <p>We measured the structural bonus &mdash; the BPT difference between real English text and the same text with its words shuffled into random order &mdash; under each quantization method. A model that understands syntax should perform much better on ordered text than shuffled text. A model that is just memorizing surface statistics should perform equally badly on both. The structural bonus is a direct measure of whether the model still exploits linguistic structure.</p>
-
-  <table style="margin: 1.5rem auto; border-collapse: collapse; font-family: var(--sans); font-size: 0.95rem;">
-    <tr style="border-bottom: 2px solid var(--text-faint);">
-      <th style="padding: 0.5rem 1rem; text-align: left;">Method</th>
-      <th style="padding: 0.5rem 1rem; text-align: right;">BPT (ordered)</th>
-      <th style="padding: 0.5rem 1rem; text-align: right;">BPT (shuffled)</th>
-      <th style="padding: 0.5rem 1rem; text-align: right;">Structural bonus</th>
-    </tr>
-    <tr><td style="padding: 0.4rem 1rem;">FP16 (baseline)</td><td style="padding: 0.4rem 1rem; text-align: right;">3.81</td><td style="padding: 0.4rem 1rem; text-align: right;">10.05</td><td style="padding: 0.4rem 1rem; text-align: right;">6.23</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">NF4</td><td style="padding: 0.4rem 1rem; text-align: right;">3.90</td><td style="padding: 0.4rem 1rem; text-align: right;">10.10</td><td style="padding: 0.4rem 1rem; text-align: right;">6.20</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Symmetric INT4</td><td style="padding: 0.4rem 1rem; text-align: right;">16.90</td><td style="padding: 0.4rem 1rem; text-align: right;">17.18</td><td style="padding: 0.4rem 1rem; text-align: right;">0.28</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Symmetric INT8</td><td style="padding: 0.4rem 1rem; text-align: right;">3.85</td><td style="padding: 0.4rem 1rem; text-align: right;">10.09</td><td style="padding: 0.4rem 1rem; text-align: right;">6.24</td></tr>
-  </table>
-
-  <p>NF4 preserves 99.5% of the structural bonus. Symmetric INT4 destroys it &mdash; the bonus drops from 6.23 to 0.28, meaning the model can barely distinguish ordered English from word salad. Symmetric INT8, with twice the bit budget, recovers the full bonus. The cliff is not just about cosine similarity in individual matrices. <strong>It is about whether the model still understands language.</strong></p>
-
-  <h2>The end-to-end test</h2>
-
-  <p>The cosine similarity results suggested Lloyd-Max INT3 (cosine 0.965) might outperform symmetric INT4 (cosine 0.905). If true, that would mean the right quantization algorithm could push the floor from 4 bits to 3 &mdash; a further 25% reduction in memory bandwidth.</p>
-
-  <p>We tested this by running full end-to-end perplexity evaluation on Pythia-410M, quantized with each method, on WikiText-2:</p>
-
-  <table style="margin: 1.5rem auto; border-collapse: collapse; font-family: var(--sans); font-size: 0.95rem;">
-    <tr style="border-bottom: 2px solid var(--text-faint);">
-      <th style="padding: 0.5rem 1rem; text-align: left;">Method</th>
-      <th style="padding: 0.5rem 1rem; text-align: right;">BPT</th>
-      <th style="padding: 0.5rem 1rem; text-align: right;">vs. baseline</th>
-    </tr>
-    <tr><td style="padding: 0.4rem 1rem;">FP16 (baseline)</td><td style="padding: 0.4rem 1rem; text-align: right;">4.27</td><td style="padding: 0.4rem 1rem; text-align: right;">1.0&times;</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Lloyd-Max INT4</td><td style="padding: 0.4rem 1rem; text-align: right;">8.51</td><td style="padding: 0.4rem 1rem; text-align: right;">2.0&times;</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Lloyd-Max INT3</td><td style="padding: 0.4rem 1rem; text-align: right;">11.74</td><td style="padding: 0.4rem 1rem; text-align: right;">2.7&times;</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Symmetric INT4</td><td style="padding: 0.4rem 1rem; text-align: right;">16.89</td><td style="padding: 0.4rem 1rem; text-align: right;">4.0&times;</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Symmetric INT3</td><td style="padding: 0.4rem 1rem; text-align: right;">16.05</td><td style="padding: 0.4rem 1rem; text-align: right;">3.8&times;</td></tr>
-  </table>
-
-  <p><strong>Lloyd-Max INT3 fails end-to-end.</strong> Per-matrix cosine of 0.965 does not survive error accumulation across 24 layers. Even Lloyd-Max INT4 degrades to 2&times; baseline &mdash; still operational, but substantially worse than NF4&rsquo;s near-lossless 3.90 BPT.</p>
-
-  <p>This is a cautionary result: <strong>cosine similarity overstates quantization quality.</strong> A method can preserve 96.5% of per-matrix fidelity and still produce a model that is 2.7&times; worse end-to-end. The structural bonus test and end-to-end BPT are the metrics that matter. NF4 remains the only INT4 method that preserves both meaning and performance through the full network.</p>
-
-  <h2>Statistical decisiveness</h2>
-
-  <p>To rule out any concern that these results could be noise, we ran the structural bonus test on Pythia-1.4B (1.4 billion parameters) with five independent shuffle seeds per quantization method:</p>
-
-  <table style="margin: 1.5rem auto; border-collapse: collapse; font-family: var(--sans); font-size: 0.95rem;">
-    <tr style="border-bottom: 2px solid var(--text-faint);">
-      <th style="padding: 0.5rem 1rem; text-align: left;">Method</th>
-      <th style="padding: 0.5rem 1rem; text-align: right;">Bonus (mean ± std)</th>
-      <th style="padding: 0.5rem 1rem; text-align: right;">95% CI</th>
-    </tr>
-    <tr><td style="padding: 0.4rem 1rem;">FP16</td><td style="padding: 0.4rem 1rem; text-align: right;">6.399 ± 0.009</td><td style="padding: 0.4rem 1rem; text-align: right;">[6.392, 6.406]</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">NF4</td><td style="padding: 0.4rem 1rem; text-align: right;">6.366 ± 0.009</td><td style="padding: 0.4rem 1rem; text-align: right;">[6.358, 6.375]</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Symmetric INT8</td><td style="padding: 0.4rem 1rem; text-align: right;">6.405 ± 0.009</td><td style="padding: 0.4rem 1rem; text-align: right;">[6.398, 6.414]</td></tr>
-    <tr><td style="padding: 0.4rem 1rem;">Symmetric INT4</td><td style="padding: 0.4rem 1rem; text-align: right;">0.203 ± 0.018</td><td style="padding: 0.4rem 1rem; text-align: right;">[0.189, 0.218]</td></tr>
-  </table>
-
-  <p>The 95% confidence intervals do not overlap. The Welch&rsquo;s t-test comparing FP16 against symmetric INT4 gives <strong>t = 633.74, p = 2.84 &times; 10<sup>&minus;15</sup>, Cohen&rsquo;s d = 400.81</strong> &mdash; an effect size that is, for all practical purposes, infinite. The cliff between symmetric INT4 and every other method is one of the cleanest experimental results in the deep learning literature. It is not noise. It is not a model artifact. It is the direct consequence of where the quantization levels are placed.</p>
-
-  <h2>How we built this answer in seven rounds</h2>
-
-  <p>The level-allocation thesis was not the starting hypothesis. It is the output of seven rounds of follow-up experiments built between April 11 and April 16. <strong>Round 5 produced a thesis pivot</strong> &mdash; we reframed the paper from &ldquo;the cliff is at INT4 universally&rdquo; to &ldquo;the cliff is about level allocation, not bit count&rdquo; &mdash; and the credibility of the final answer rests on the cumulative pressure each round applied to its predecessor.</p>
-
-  <p><strong>Round 1.</strong> Anticipated objection: the Paper 7 cliff is just a bitsandbytes software bug; real arithmetic at low precision wouldn&rsquo;t have this problem. We tested in three escalating layers of hardware fidelity, including <strong>PyRTL gate-level multiply-accumulate simulation</strong> &mdash; actual hardware-description language, not numerical approximation. Cliff confirmed at every level. The cliff is in the math, not the software.</p>
-
-  <p><strong>Round 2 (four hours later).</strong> Anticipated objection: random-init weights aren&rsquo;t real trained models. We took a real Pythia-410M trained checkpoint and pushed every weight matrix through the same hardware quantizer. The cliff is present in every layer, with 4.5 to 4.9-times-worse degradation going from INT4 to INT3 across attention QKV, attention dense, and MLP matrices. Real trained weights show it identically to random init.</p>
-
-  <p><strong>Round 3 &mdash; the thesis pivot.</strong> Anticipated objection: you only tested symmetric uniform quantization; non-uniform schemes might escape the cliff at INT4. We ran Pythia-410M and Pythia-1.4B end-to-end at every quantization scheme bitsandbytes supports plus our own symmetric implementation. The result reframed the paper. <strong>Symmetric INT4 collapsed (BPT 16.87). NF4 INT4 was operational (BPT 3.90). Same bit count, opposite outcomes.</strong> The cliff is not at INT4 universally. It is at the precision where the quantization scheme&rsquo;s level allocation can no longer represent the weight distribution&rsquo;s critical features.</p>
-
-  <p><strong>Round 4.</strong> Anticipated objection: you established the level-allocation thesis on Pythia; maybe it&rsquo;s a Pythia quirk. We ran the same comparison on GPT-2-medium and Pythia at three sizes (160M, 410M, 1.4B). The ordering Lloyd-Max > NF4 > Symmetric is universal across all four architectures at both INT4 and INT3.</p>
-
-  <p><strong>Round 5.</strong> Anticipated objection: Lloyd-Max codebook quantization is the optimal solution at INT3; your cliff goes away with the right algorithm. We tested directly. Per-matrix Lloyd-Max INT3 produces cosine similarity 0.965 &mdash; impressive on a per-matrix basis. End-to-end Lloyd-Max INT3 through 24 layers of Pythia-410M produces BPT 11.74 against the FP16 baseline of 4.27. <strong>Per-matrix metrics overstate quantization quality.</strong> The cosine looks great; the end-to-end performance collapses because errors accumulate across layers. This finding became the paper&rsquo;s methodological recommendation: report end-to-end structural bonus, not per-matrix cosine.</p>
-
-  <p><strong>Round 6.</strong> Anticipated objection: single-shuffle is not statistically rigorous. We replicated the structural-bonus measurement at three model scales across four quantization methods with three independent shuffle seeds &mdash; thirty-six measurements. Standard deviations across seeds were under 0.012 for the operational methods.</p>
-
-  <p><strong>Round 7 &mdash; the bulletproof.</strong> Final adversarial pressure. Replicate at the largest model with maximum statistical rigor. Pythia-1.4B at four quantization methods with five shuffle seeds, bootstrap 95% confidence intervals, Welch t-tests with Cohen&rsquo;s d effect sizes. <strong>The result is the &ldquo;Statistical decisiveness&rdquo; section above</strong>: <em>t</em> = 633.74, <em>p</em> = 2.84&times;10<sup>&minus;15</sup>, Cohen&rsquo;s <em>d</em> = 400.81. P-values below 10<sup>&minus;15</sup> are at the limit of standard double-precision arithmetic.</p>
-
-  <p>The paper that started as a confirmation of Paper 7&rsquo;s cliff (Round 1) became a design paper for inference hardware (Round 5 thesis pivot) with statistical decisiveness at the limit of numerical arithmetic (Round 7). The framework now prescribes specific design choices: build quantization lookup tables, validate end-to-end with structural-bonus testing, and don&rsquo;t deploy uniform-integer datapaths below INT8. The full per-round experiment reports are in the <a href="https://github.com/Windstorm-Labs/hardware-basin">Windstorm-Labs hardware-basin repository</a>; the formal scientific paper carries the same journey in §1.4 and the adversarial-review-defense table in §4.6.</p>
+  <p>And that closes the first great arc of this whole adventure — nine papers that started with a machine reading life's four-letter book and ended with the switches on a computer chip, chasing one stubborn idea the whole way: that information itself has speed limits, and those limits show up everywhere from your genes to your GPU. But partway through, we stumbled onto a second, stranger thread. If information and energy are this deeply braided together — if telling things apart <em>costs</em>, and the cost bends the outcome — then what does that say about the two great cost-keepers of the universe itself: <strong>gravity and entropy?</strong> That question yanked us clean off the planet and into Papers 10 through 16 — a whole second act, out among the black holes.</p>
 
   <hr>
 
   <p style="font-size: 0.9rem; color: var(--text-faint); text-align: center; font-family: var(--sans);">
     <em>The Hardware Basin</em> is Paper 9 of the Windstorm series.<br>
     Zenodo (concept DOI, always-latest): <a href="https://doi.org/10.5281/zenodo.19672921">10.5281/zenodo.19672921</a> &middot;
-    Current version v2.2 (April 2026): <a href="https://doi.org/10.5281/zenodo.19672922">10.5281/zenodo.19672922</a> &middot;
+    Current version v2.2 (April 2026): <a href="https://doi.org/10.5281/zenodo.19672921">10.5281/zenodo.19672921</a> &middot;
     Code &amp; data: <a href="https://github.com/Windstorm-Institute/hardware-basin">github.com/Windstorm-Institute/hardware-basin</a><br>
     <a href="https://github.com/Windstorm-Institute/hardware-basin/blob/main/paper.pdf">Download the full paper (PDF)</a> &middot;
     <a href="https://github.com/Windstorm-Institute/hardware-basin/blob/main/grandslam_supplementary.pdf">Grand Slam Supplementary Materials (PDF)</a>
   </p>
+
 
 </article>
 

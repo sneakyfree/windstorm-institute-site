@@ -861,7 +861,7 @@ footer {
 
     <!-- Track 2 hero chart: where the bound becomes empirically discriminating -->
     <div style="margin: 2rem 0 3rem; border: 1px solid rgba(139, 92, 246, 0.25); border-radius: 12px; overflow: hidden; background: var(--surface);">
-      <img src="assets/images/web_hero_track2_bound.png" alt="Plot of the entropic-gravity efficiency bound η ≤ 1/(1 + T/T_res) across 25 orders of magnitude of temperature ratio. The bound stays near η = 1 (vacuous) for all astrophysical regimes — Saturn V launch, hot-Jupiter atmospheric escape, stellar wind, binary inspiral — and only drops meaningfully as T/T_res approaches order unity. A gold star marks the BEC analog gravity sweet spot at T/T_res = 0.2 where the bound predicts η ≤ 0.83 — a 17% efficiency suppression distinguishable from naive energetic accounting." style="width: 100%; display: block;">
+      <img src="assets/images/web_hero_track2_bound.png" alt="Plot of the entropic-gravity (Carnot) efficiency bound η ≤ 1 − T/T_res across 25 orders of magnitude of temperature ratio. The bound stays near η = 1 (vacuous) for all astrophysical regimes — Saturn V launch, hot-Jupiter atmospheric escape, stellar wind, binary inspiral — and only drops meaningfully as T/T_res approaches order unity. A gold star marks the BEC analog gravity sweet spot at T/T_res = 0.2 where the bound predicts η ≤ 0.80 — a 20% efficiency suppression distinguishable from naive energetic accounting." style="width: 100%; display: block;">
     </div>
 
     <!-- Paper 10 -->
@@ -870,7 +870,7 @@ footer {
         <div style="font-family: var(--mono); font-size: 0.7rem; font-weight: 600; color: var(--accent-2); padding: 4px 12px; border-radius: 100px; background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.35); letter-spacing: 0.08em; text-transform: uppercase; flex-shrink: 0;">Paper 10 &middot; May 2026</div>
         <div style="flex: 1; min-width: 240px;">
           <h3 style="color: var(--text); margin-bottom: 0.75rem; font-size: 1.2rem;">The Phonon Bound: A Non-Equilibrium Efficiency Bound for Phonon Extraction in BEC Analog Gravity</h3>
-          <p style="margin-bottom: 1rem;">Verlinde&rsquo;s entropic-gravity construction yields, under one explicit thermodynamic assumption, the bound &eta; &le; 1/(1 + <em>T</em>/<em>T</em><sub>res</sub>). In every astrophysical setting the ratio is essentially zero and the bound is vacuous. In Bose&ndash;Einstein condensate analog gravity the ratio is &asymp; 0.2 and the bound predicts a <strong>17% efficiency suppression</strong> distinguishable from naive energetic accounting and from mundane experimental losses by its specific functional form. The load-bearing assumption is tested across five independent QuTiP Lindblad simulations.</p>
+          <p style="margin-bottom: 1rem;">Verlinde&rsquo;s entropic-gravity construction yields, under one explicit thermodynamic assumption, the bound &eta; &le; 1 &minus; <em>T</em>/<em>T</em><sub>res</sub>. In every astrophysical setting the ratio is essentially zero and the bound is vacuous. In Bose&ndash;Einstein condensate analog gravity the ratio is &asymp; 0.2 and the bound predicts a <strong>20% efficiency suppression</strong> distinguishable from naive energetic accounting and from mundane experimental losses by its specific functional form. The load-bearing assumption is tested across five independent QuTiP Lindblad simulations.</p>
           <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
             <span class="pub-tag live" style="color: var(--accent-2); border-color: rgba(139, 92, 246, 0.3);">2026</span>
             <span class="pub-tag">analog gravity</span>
@@ -932,7 +932,7 @@ footer {
         <div style="font-family: var(--mono); font-size: 0.7rem; font-weight: 600; color: var(--accent-2); padding: 4px 12px; border-radius: 100px; background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.35); letter-spacing: 0.08em; text-transform: uppercase; flex-shrink: 0;">Paper 13 &middot; May 2026</div>
         <div style="flex: 1; min-width: 240px;">
           <h3 style="color: var(--text); margin-bottom: 0.75rem; font-size: 1.2rem;">The Lattice QFT Test &mdash; Half a Falsification.</h3>
-          <p style="margin-bottom: 1rem;">Supplement to Paper 11. The framework&rsquo;s static identification <em>S</em><sub>esc</sub> = |<em>U</em><sub>grav</sub>|/<em>T</em><sub>Unruh</sub> is tested directly against lattice quantum field theory across three independent entropy measures. <strong>The literal bipartition-entropy reading fails by 10<sup>56</sup> orders of magnitude</strong> across a 295-point parameter grid in 1+1D, and is bounded below 10<sup>&minus;3</sup> in 3+1D. <strong>The modular Hamiltonian reading partially survives in 1+1D</strong>: the Bisognano&ndash;Wichmann linear asymptote &Delta;<em>K</em> &prop; <em>d</em><sub>1</sub> is approximately recovered in a small-<em>d</em><sub>1</sub> window with prefactor &asymp; 1/30. The previously-published &ldquo;&Delta;<em>K</em> &prop; <em>L</em><sup>0.7</sup>&rdquo; sublinear fit is corrected here to a regime-dependent characterization &mdash; the 0.7 was a fitting artifact across a smooth crossover. <strong>The framework&rsquo;s horizon-limit recoveries (Bekenstein&ndash;Hawking via surface gravity) are independent of these flat-space tests</strong>; what fails is the load-bearing static identification, what survives is a structurally-correct modular content with calculable suppression as the open question.</p>
+          <p style="margin-bottom: 1rem;">Supplement to Paper 11. The framework&rsquo;s static identification <em>S</em><sub>esc</sub> = |<em>U</em><sub>grav</sub>|/<em>T</em><sub>Unruh</sub> is tested directly against lattice quantum field theory across three independent entropy measures. <strong>The literal bipartition-entropy reading fails, the dimensionless ratio spanning 10.56 orders of magnitude</strong> (a factor of ~10<sup>10.56</sup> &asymp; 3.6&times;10<sup>10</sup>) across a 295-point parameter grid in 1+1D, and is bounded below 10<sup>&minus;3</sup> in 3+1D. <strong>The modular Hamiltonian reading shows a suggestive window in 1+1D</strong>: at m=1 there is a positive, approximately linear &Delta;<em>K</em> &prop; <em>d</em><sub>1</sub> window (prefactor &asymp; 1/30), but this is a non-perturbative feature, not a linear-response recovery of the Bisognano&ndash;Wichmann asymptote &mdash; in the linear-response regime &Delta;<em>K</em> is negative and <em>d</em><sub>1</sub>-flat. The previously-published &ldquo;&Delta;<em>K</em> &prop; <em>L</em><sup>0.7</sup>&rdquo; sublinear fit is corrected here to a regime-dependent characterization &mdash; the 0.7 was a fitting artifact across a smooth crossover. <strong>The framework&rsquo;s horizon-limit recoveries (Bekenstein&ndash;Hawking via surface gravity) are independent of these flat-space tests</strong>; what fails is the load-bearing static identification, what survives is a structurally-correct modular content with calculable suppression as the open question.</p>
           <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
             <span class="pub-tag live" style="color: var(--accent-2); border-color: rgba(139, 92, 246, 0.3);">2026</span>
             <span class="pub-tag">lattice QFT</span>
@@ -1143,7 +1143,7 @@ footer {
     <h2 class="section-title">Published research.</h2>
     <p class="section-desc">All papers include reproducible Python code, full experiment protocols, and honest limitations. We lead with falsified predictions because that's how science works.</p>
     <div class="pub-list">
-      <a href="https://doi.org/10.5281/zenodo.19274048" class="pub-card" target="_blank">
+      <a href="https://doi.org/10.5281/zenodo.19274047" class="pub-card" target="_blank">
         <div class="pub-num">01</div>
         <div class="pub-info">
           <h4>The Fons Constraint</h4>
@@ -1153,11 +1153,11 @@ footer {
             <span class="pub-tag">information theory</span>
             <span class="pub-tag">falsification</span>
             <span class="pub-tag">zenodo</span>
-            <span class="pub-tag">doi: 10.5281/zenodo.19274048</span>
+            <span class="pub-tag">doi: 10.5281/zenodo.19274047</span>
           </div>
         </div>
       </a>
-      <a href="https://doi.org/10.5281/zenodo.19322973" class="pub-card" target="_blank">
+      <a href="https://doi.org/10.5281/zenodo.19322972" class="pub-card" target="_blank">
         <div class="pub-num">02</div>
         <div class="pub-info">
           <h4>The Receiver-Limited Floor: Rate-Distortion Bounds on Serial Decoding Throughput</h4>
@@ -1167,11 +1167,11 @@ footer {
             <span class="pub-tag">information theory</span>
             <span class="pub-tag">empirical</span>
             <span class="pub-tag">zenodo</span>
-            <span class="pub-tag">doi: 10.5281/zenodo.19322973</span>
+            <span class="pub-tag">doi: 10.5281/zenodo.19322972</span>
           </div>
         </div>
       </a>
-      <a href="https://doi.org/10.5281/zenodo.19323194" class="pub-card" target="_blank">
+      <a href="https://doi.org/10.5281/zenodo.19323193" class="pub-card" target="_blank">
         <div class="pub-num">03</div>
         <div class="pub-info">
           <h4>The Throughput Basin: Cross-Substrate Convergence and Decomposition of Serial Decoding Throughput</h4>
@@ -1181,11 +1181,11 @@ footer {
             <span class="pub-tag">cross-substrate</span>
             <span class="pub-tag">evolutionary</span>
             <span class="pub-tag">zenodo</span>
-            <span class="pub-tag">doi: 10.5281/zenodo.19323194</span>
+            <span class="pub-tag">doi: 10.5281/zenodo.19323193</span>
           </div>
         </div>
       </a>
-      <a href="https://doi.org/10.5281/zenodo.19323423" class="pub-card" target="_blank">
+      <a href="https://doi.org/10.5281/zenodo.19323422" class="pub-card" target="_blank">
         <div class="pub-num">04</div>
         <div class="pub-info">
           <h4>The Serial Decoding Basin &tau;: Five Experiments on Convergence, Thermodynamic Anchoring, and the Geometry of Receiver-Limited Throughput</h4>
@@ -1195,11 +1195,11 @@ footer {
             <span class="pub-tag">experimental</span>
             <span class="pub-tag">reproducible</span>
             <span class="pub-tag">zenodo</span>
-            <span class="pub-tag">doi: 10.5281/zenodo.19323423</span>
+            <span class="pub-tag">doi: 10.5281/zenodo.19323422</span>
           </div>
         </div>
       </a>
-      <a href="https://doi.org/10.5281/zenodo.19433048" class="pub-card" target="_blank">
+      <a href="https://doi.org/10.5281/zenodo.19432785" class="pub-card" target="_blank">
         <div class="pub-num">05</div>
         <div class="pub-info">
           <h4>The Dissipative Decoder: Thermodynamic Cost Bounds on the Serial Decoding Throughput Basin &mdash; and Why Silicon Escapes Them</h4>
@@ -1210,11 +1210,11 @@ footer {
             <span class="pub-tag">empirical</span>
             <span class="pub-tag">falsification</span>
             <span class="pub-tag">zenodo</span>
-            <span class="pub-tag">doi: 10.5281/zenodo.19433048</span>
+            <span class="pub-tag">doi: 10.5281/zenodo.19432785</span>
           </div>
         </div>
       </a>
-      <a href="https://doi.org/10.5281/zenodo.19432911" class="pub-card" target="_blank">
+      <a href="https://doi.org/10.5281/zenodo.19432910" class="pub-card" target="_blank">
         <div class="pub-num">06</div>
         <div class="pub-info">
           <h4>The Inherited Constraint: Biological Throughput Limits Shape the Information Structure of Human Language and, Through It, AI</h4>
@@ -1226,7 +1226,7 @@ footer {
             <span class="pub-tag">cognition</span>
             <span class="pub-tag">empirical</span>
             <span class="pub-tag">zenodo</span>
-            <span class="pub-tag">doi: 10.5281/zenodo.19432911</span>
+            <span class="pub-tag">doi: 10.5281/zenodo.19432910</span>
           </div>
         </div>
       </a>
@@ -1273,11 +1273,11 @@ footer {
           </div>
         </div>
       </a>
-      <a href="https://doi.org/10.5281/zenodo.20014391" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
+      <a href="https://doi.org/10.5281/zenodo.20014390" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
         <div class="pub-num" style="color: var(--accent-2);">10</div>
         <div class="pub-info">
           <h4>The Phonon Bound: A Non-Equilibrium Efficiency Bound for Phonon Extraction in BEC Analog Gravity Systems with Numerical Tests of the Underlying Thermodynamic Assumption</h4>
-          <p>First paper of Track 2 (Entropic Bounds). Verlinde&rsquo;s screen-entropy + standard non-equilibrium thermodynamics &rArr; &eta; &le; 1/(1 + <em>T</em>/<em>T</em><sub>res</sub>). For BEC analog gravity at <em>T</em>/<em>T</em><sub>res</sub> = 0.2, the bound predicts a 17% efficiency suppression below naive energetic accounting &mdash; the regime where Verlinde&rsquo;s construction becomes empirically discriminating. The load-bearing thermodynamic assumption is tested across five independent QuTiP Lindblad simulations; 4 of 5 pass cleanly, the 5th identifies a clean scope limit (non-thermal coherent initial states).</p>
+          <p>First paper of Track 2 (Entropic Bounds). Verlinde&rsquo;s screen-entropy + standard non-equilibrium thermodynamics &rArr; &eta; &le; 1 &minus; <em>T</em>/<em>T</em><sub>res</sub>. For BEC analog gravity at <em>T</em>/<em>T</em><sub>res</sub> = 0.2, the bound predicts a 20% efficiency suppression below naive energetic accounting &mdash; the regime where Verlinde&rsquo;s construction becomes empirically discriminating. The substitution is examined across five QuTiP Lindblad simulations; for thermal states it holds as an algebraic identity (a consistency check on the integrator, not an independent test), and the fifth setting — a coherent initial state — makes it fail, delimiting scope.</p>
           <div class="pub-meta">
             <span class="pub-tag live" style="color: var(--accent-2); border-color: rgba(139, 92, 246, 0.35);">2026</span>
             <span class="pub-tag" style="background: rgba(139, 92, 246, 0.1); color: var(--accent-2); border-color: rgba(139, 92, 246, 0.3);">track 2</span>
@@ -1286,11 +1286,11 @@ footer {
             <span class="pub-tag">BEC</span>
             <span class="pub-tag">falsification</span>
             <span class="pub-tag">zenodo</span>
-            <span class="pub-tag">doi: 10.5281/zenodo.20014391</span>
+            <span class="pub-tag">doi: 10.5281/zenodo.20014390</span>
           </div>
         </div>
       </a>
-      <a href="https://doi.org/10.5281/zenodo.20032023" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
+      <a href="https://doi.org/10.5281/zenodo.20031931" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
         <div class="pub-num" style="color: var(--accent-2);">11</div>
         <div class="pub-info">
           <h4>Gravitational Entropy Escrow: An Interpretive Synthesis of Thermodynamic Approaches to Gravity</h4>
@@ -1304,11 +1304,11 @@ footer {
             <span class="pub-tag">de Sitter floor</span>
             <span class="pub-tag">interpretive synthesis</span>
             <span class="pub-tag">zenodo</span>
-            <span class="pub-tag">doi: 10.5281/zenodo.20032023</span>
+            <span class="pub-tag">doi: 10.5281/zenodo.20031931</span>
           </div>
         </div>
       </a>
-      <a href="https://doi.org/10.5281/zenodo.20041992" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
+      <a href="https://doi.org/10.5281/zenodo.20041991" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
         <div class="pub-num" style="color: var(--accent-2);">12</div>
         <div class="pub-info">
           <h4>On the Status of Local Entropy-Current Extensions of the Gravitational Entropy Escrow Framework: A Clarification Note</h4>
@@ -1321,15 +1321,15 @@ footer {
             <span class="pub-tag">multi-LLM methodology</span>
             <span class="pub-tag">negative result</span>
             <span class="pub-tag">zenodo</span>
-            <span class="pub-tag">doi: 10.5281/zenodo.20041992</span>
+            <span class="pub-tag">doi: 10.5281/zenodo.20041991</span>
           </div>
         </div>
       </a>
-      <a href="https://doi.org/10.5281/zenodo.20057538" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
+      <a href="https://doi.org/10.5281/zenodo.20057537" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
         <div class="pub-num" style="color: var(--accent-2);">13</div>
         <div class="pub-info">
           <h4>A Lattice Quantum Field Theory Test of the Static Escrow Postulate: 1+1D and 3+1D Falsification with Modular-Hamiltonian Partial Survival</h4>
-          <p>Supplement to Paper 11. The framework&rsquo;s load-bearing static identification <em>S</em><sub>esc</sub> = |<em>U</em><sub>grav</sub>|/<em>T</em><sub>Unruh</sub> is tested directly against lattice QFT computations of three independent entropy measures: bipartition entanglement entropy, mutual information, and modular Hamiltonian content under the Bisognano&ndash;Wichmann conjecture. The literal bipartition-entropy reading is ruled out in both 1+1D and 3+1D &mdash; the dimensionless ratio spans 10⁵⁶ across the parameter grid, and 3+1D mutual information decays as <em>L</em>⁻⁴, opposite to the linear growth required. The modular Hamiltonian reading partially survives in 1+1D: the BW linear asymptote &Delta;<em>K</em> &prop; <em>d</em><sub>1</sub> is approximately recovered in a small-<em>d</em><sub>1</sub> window with prefactor &asymp; 1/30. The previously-published v0.4/v0.5 figure of &ldquo;&Delta;<em>K</em> &prop; <em>L</em><sup>0.7</sup> sublinear scaling&rdquo; is here corrected to a regime-dependent characterization, with the single-power-law exponent identified as a fitting artifact across a smooth crossover. Companion paper reports 3+1D modular content does NOT recover the BW asymptote within the resolvable <em>d</em><sub>1</sub> range, indicating dimension-dependent recovery. The framework&rsquo;s horizon-limit recoveries (Bekenstein&ndash;Hawking via surface gravity) are independent of these flat-space tests.</p>
+          <p>Supplement to Paper 11. The framework&rsquo;s load-bearing static identification <em>S</em><sub>esc</sub> = |<em>U</em><sub>grav</sub>|/<em>T</em><sub>Unruh</sub> is tested directly against lattice QFT computations of three independent entropy measures: bipartition entanglement entropy, mutual information, and modular Hamiltonian content under the Bisognano&ndash;Wichmann conjecture. The literal bipartition-entropy reading is ruled out in both 1+1D and 3+1D &mdash; the dimensionless ratio spans 10.56 orders of magnitude (a factor of ~10<sup>10.56</sup>) across the parameter grid, and 3+1D mutual information decays as <em>L</em>⁻⁴, opposite to the linear growth required. The modular Hamiltonian reading shows a suggestive window in 1+1D: at m=1 there is a positive, approximately linear &Delta;<em>K</em> &prop; <em>d</em><sub>1</sub> window (prefactor &asymp; 1/30), not a linear-response recovery of the BW asymptote &mdash; in the linear-response regime &Delta;<em>K</em> is negative and <em>d</em><sub>1</sub>-flat. The previously-published v0.4/v0.5 figure of &ldquo;&Delta;<em>K</em> &prop; <em>L</em><sup>0.7</sup> sublinear scaling&rdquo; is here corrected to a regime-dependent characterization, with the single-power-law exponent identified as a fitting artifact across a smooth crossover. Companion paper reports 3+1D modular content does NOT recover the BW asymptote within the resolvable <em>d</em><sub>1</sub> range, indicating dimension-dependent recovery. The framework&rsquo;s horizon-limit recoveries (Bekenstein&ndash;Hawking via surface gravity) are independent of these flat-space tests.</p>
           <div class="pub-meta">
             <span class="pub-tag live" style="color: var(--accent-2); border-color: rgba(139, 92, 246, 0.35);">2026</span>
             <span class="pub-tag" style="background: rgba(139, 92, 246, 0.1); color: var(--accent-2); border-color: rgba(139, 92, 246, 0.3);">track 2</span>
@@ -1340,11 +1340,11 @@ footer {
             <span class="pub-tag">falsification</span>
             <span class="pub-tag">partial survival</span>
             <span class="pub-tag">zenodo</span>
-            <span class="pub-tag">doi: 10.5281/zenodo.20057538</span>
+            <span class="pub-tag">doi: 10.5281/zenodo.20057537</span>
           </div>
         </div>
       </a>
-      <a href="https://doi.org/10.5281/zenodo.20126091" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
+      <a href="https://doi.org/10.5281/zenodo.20126090" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
         <div class="pub-num" style="color: var(--accent-2);">14</div>
         <div class="pub-info">
           <h4>Spacetime as Escrow Bookkeeping: A Conceptual Translation of General Relativity into the Static Entropy Escrow Vocabulary</h4>
@@ -1359,11 +1359,11 @@ footer {
             <span class="pub-tag">Smarr formula</span>
             <span class="pub-tag">modular Hamiltonian</span>
             <span class="pub-tag">zenodo</span>
-            <span class="pub-tag">doi: 10.5281/zenodo.20126091</span>
+            <span class="pub-tag">doi: 10.5281/zenodo.20126090</span>
           </div>
         </div>
       </a>
-      <a href="https://doi.org/10.5281/zenodo.20145106" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
+      <a href="https://doi.org/10.5281/zenodo.20145105" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
         <div class="pub-num" style="color: var(--accent-2);">15</div>
         <div class="pub-info">
           <h4>The 𝒩<sub>esc</sub> Recipe: A Cross-Regime Observation of Bekenstein-Bound Saturation from the Static Escrow Construction |<em>U</em>|/<em>T</em></h4>
@@ -1379,11 +1379,11 @@ footer {
             <span class="pub-tag">modular Hamiltonian</span>
             <span class="pub-tag">cross-regime</span>
             <span class="pub-tag">zenodo</span>
-            <span class="pub-tag">doi: 10.5281/zenodo.20145106</span>
+            <span class="pub-tag">doi: 10.5281/zenodo.20145105</span>
           </div>
         </div>
       </a>
-      <a href="https://doi.org/10.5281/zenodo.20163451" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
+      <a href="https://doi.org/10.5281/zenodo.20163450" class="pub-card" target="_blank" style="border-color: rgba(139, 92, 246, 0.25);">
         <div class="pub-num" style="color: var(--accent-2);">16</div>
         <div class="pub-info">
           <h4>Bekenstein&rsquo;s Bound at the Compton Scale of a Massive Elementary Particle: A Hilbert-Space Ceiling and a Numerical Coincidence with the Exceptional Lie Group Sequence</h4>
@@ -1400,7 +1400,7 @@ footer {
             <span class="pub-tag">numerical coincidence</span>
             <span class="pub-tag">corollary</span>
             <span class="pub-tag">zenodo</span>
-            <span class="pub-tag">doi: 10.5281/zenodo.20163451</span>
+            <span class="pub-tag">doi: 10.5281/zenodo.20163450</span>
           </div>
         </div>
       </a>
@@ -1569,12 +1569,12 @@ footer {
       <div class="articles-grid">
         <a href="articles/phonon-extraction-bound.html" class="article-card" style="border-color: rgba(139, 92, 246, 0.25);">
           <div class="article-card-hero" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.18) 0%, rgba(6, 182, 212, 0.08) 50%, rgba(245, 158, 11, 0.08) 100%);">
-            <div class="article-card-hero-text" style="color: rgba(139, 92, 246, 0.18);">17%</div>
+            <div class="article-card-hero-text" style="color: rgba(139, 92, 246, 0.18);">20%</div>
           </div>
           <div class="article-card-body">
             <div class="article-card-date">May 2026 <span style="color: var(--accent-2);">~14 min read</span></div>
-            <h3>The Phonon Bound: A 17% Efficiency Suppression Hidden in Cold-Atom Analog Gravity</h3>
-            <p>Verlinde&rsquo;s entropic gravity has been beautiful and untestable for fifteen years &mdash; because every astrophysical setting puts <em>T</em>/<em>T</em><sub>res</sub> absurdly far from unity. BECs put it within reach. Paper 10 derives the bound, tests its load-bearing assumption five ways, and predicts a 17% efficiency suppression in BEC phonon extraction that current laboratory technique can plausibly resolve.</p>
+            <h3>The Phonon Bound: A 20% Efficiency Suppression Hidden in Cold-Atom Analog Gravity</h3>
+            <p>Verlinde&rsquo;s entropic gravity has been beautiful and untestable for fifteen years &mdash; because every astrophysical setting puts <em>T</em>/<em>T</em><sub>res</sub> absurdly far from unity. BECs put it within reach. Paper 10 derives the bound, examines its load-bearing assumption five ways, and predicts a 20% efficiency suppression in BEC phonon extraction that current laboratory technique can plausibly resolve.</p>
             <div class="article-card-link" style="color: var(--accent-2);">Read article &rarr;</div>
           </div>
         </a>
@@ -1607,7 +1607,7 @@ footer {
           <div class="article-card-body">
             <div class="article-card-date">May 2026 <span style="color: var(--accent-2);">~14 min read</span></div>
             <h3>Half a Falsification: A Lattice QFT Test of the Static Escrow Postulate</h3>
-            <p>The framework&rsquo;s load-bearing identity tested directly against quantum field theory on a lattice. The literal bipartition-entropy reading fails by 56 orders of magnitude. The modular-Hamiltonian reading partially survives in 1+1D within a small-distance window, with prefactor &asymp; 1/30 of the literal value. The previously-published &ldquo;sublinear scaling&rdquo; is here corrected to a regime-dependent characterization. Honest about both halves &mdash; what failed and what survives. Paper 13.</p>
+            <p>The framework&rsquo;s load-bearing identity tested directly against quantum field theory on a lattice. The literal bipartition-entropy reading fails, with the ratio spanning 10.56 orders of magnitude. The modular-Hamiltonian reading shows a suggestive positive, approximately linear window in 1+1D at m=1 (prefactor &asymp; 1/30 of the literal value), not a linear-response recovery of the BW asymptote &mdash; in linear response the modular content is negative and flat. The previously-published &ldquo;sublinear scaling&rdquo; is here corrected to a regime-dependent characterization. Honest about both halves &mdash; what failed and what survives. Paper 13.</p>
             <div class="article-card-link" style="color: var(--accent-2);">Read article &rarr;</div>
           </div>
         </a>
