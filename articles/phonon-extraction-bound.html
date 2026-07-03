@@ -7,16 +7,16 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
-<meta name="description" content="The Phonon Bound (Paper 10): a 17% efficiency suppression hidden in cold-atom analog gravity. Verlinde's entropic gravity becomes testable in BEC phonon extraction — and the laboratory test is now within reach.">
+<meta name="description" content="The Phonon Bound (Paper 10): a 20% efficiency suppression hidden in cold-atom analog gravity. Verlinde's entropic gravity becomes testable in BEC phonon extraction — and the laboratory test is now within reach.">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="The Windstorm Institute">
 <meta property="og:url" content="https://windstorminstitute.org/articles/phonon-extraction-bound.html">
 <meta property="og:title" content="Phonon Extraction Bound (BEC Analog Gravity) — The Windstorm Institute">
-<meta property="og:description" content="A 17% efficiency suppression hidden in cold-atom analog gravity. Paper 10 — the first paper in the Institute's Entropic Bounds track.">
+<meta property="og:description" content="A 20% efficiency suppression hidden in cold-atom analog gravity. Paper 10 — the first paper in the Institute's Entropic Bounds track.">
 <meta property="og:image" content="https://windstorminstitute.org/assets/images/web_hero_convergence.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Phonon Bound">
-<meta name="twitter:description" content="A 17% efficiency suppression hidden in cold-atom analog gravity. Paper 10 of the Windstorm Institute.">
+<meta name="twitter:description" content="A 20% efficiency suppression hidden in cold-atom analog gravity. Paper 10 of the Windstorm Institute.">
 <meta name="twitter:image" content="https://windstorminstitute.org/assets/images/web_hero_convergence.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -346,8 +346,8 @@ tr:hover td { background: var(--surface); }
       <span>Grant Lavell Whitmer III</span>
       <span>zenodo</span>
     </div>
-    <h1>The Phonon Bound:<br><span class="gradient">A 17% Efficiency Suppression Hidden in Cold-Atom Analog Gravity</span></h1>
-    <p class="article-subtitle">Verlinde&rsquo;s entropic gravity has been beautiful and untestable for fifteen years &mdash; because every astrophysical setting puts the relevant temperature ratio absurdly far from unity. Bose&ndash;Einstein condensates put it within reach. Paper 10 derives the bound, tests its load-bearing assumption five ways, and predicts a 17% efficiency suppression in BEC phonon extraction that current laboratory technique can plausibly resolve.</p>
+    <h1>The Phonon Bound:<br><span class="gradient">A 20% Efficiency Suppression Hidden in Cold-Atom Analog Gravity</span></h1>
+    <p class="article-subtitle">Verlinde&rsquo;s entropic gravity has been beautiful and untestable for fifteen years &mdash; because every astrophysical setting puts the relevant temperature ratio absurdly far from unity. Bose&ndash;Einstein condensates put it within reach. Paper 10 derives the bound, examines its load-bearing assumption five ways, and predicts a 20% efficiency suppression in BEC phonon extraction that current laboratory technique can plausibly resolve.</p>
     <div class="share-bar">
       <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+' '+encodeURIComponent(location.href),'_blank')">Share on X</button>
       <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href),'_blank')">Share on LinkedIn</button>
@@ -380,9 +380,9 @@ tr:hover td { background: var(--surface); }
 
   <p>Apply the Clausius inequality to a process that exchanges heat with a reservoir at temperature <em>T</em><sub>res</sub> while depositing heat on a holographic screen at the local Unruh temperature <em>T</em>. Use Verlinde&rsquo;s screen-entropy expression. Make one substantive assumption &mdash; that the screen exchanges heat reversibly with its immediate environment, while the coupling to the reservoir carries the irreversibility. After two pages of straightforward bookkeeping, you get:</p>
 
-  <div class="equation">&eta; &le; 1 / (1 + T / T<sub>res</sub>)</div>
+  <div class="equation">&eta; &le; 1 &minus; T / T<sub>res</sub></div>
 
-  <p>That&rsquo;s the central result. In the astrophysical regime where <em>T</em>/<em>T</em><sub>res</sub> is essentially zero, the right-hand side collapses to 1 &mdash; the trivial second-law statement. In the BEC regime where <em>T</em>/<em>T</em><sub>res</sub> &asymp; 0.2, the right-hand side is 1/1.2 &asymp; 0.83 &mdash; a 17% suppression below what naive energy accounting would predict.</p>
+  <p>That&rsquo;s the central result. In the astrophysical regime where <em>T</em>/<em>T</em><sub>res</sub> is essentially zero, the right-hand side collapses to 1 &mdash; the trivial second-law statement. In the BEC regime where <em>T</em>/<em>T</em><sub>res</sub> &asymp; 0.2, the right-hand side is 1 &minus; 0.2 = 0.80 &mdash; a 20% suppression below what naive energy accounting would predict.</p>
 
   <p><strong>Seventeen percent is a lot.</strong> It&rsquo;s well above the systematic-error floor of contemporary BEC phonon-manipulation experiments. It is, plausibly, measurable.</p>
 
@@ -404,7 +404,7 @@ tr:hover td { background: var(--surface); }
 
   <p><strong>Test 3 &mdash; Strong coupling.</strong> The same qubit setup with the system&ndash;bath coupling &gamma;/&omega; pushed from 0.05 (textbook weak coupling) up to 2.0 (where standard Markovian assumptions become questionable). <strong>Result:</strong> for moderate temperature ratios <em>r</em> &ge; 0.30 the substitution remains exact across the entire coupling sweep. The BEC application sits comfortably in the weak-coupling regime, so this constraint does not affect the paper&rsquo;s claim within its stated scope.</p>
 
-  <p><strong>Test 4 &mdash; Two-bath driven non-equilibrium steady state.</strong> The hardest test conceptually: a qubit coupled simultaneously to a hot bath and a cold bath, driven into a non-equilibrium steady state. Heat currents computed directly from the dissipator structure rather than inferred from energy differences. <strong>Result:</strong> energy conservation closes to one part in 10<sup>16</sup>. The ratio Q<sub>in</sub> / (T<sub>eff</sub> &middot; dS<sub>hot</sub>) equals 1.000 <em>exactly</em> across all coupling configurations tested. This addresses the most important conceptual concern in the original derivation &mdash; that Assumption A was being tested only in relaxation, not in genuine driven non-equilibrium settings.</p>
+  <p><strong>Test 4 &mdash; Two-bath driven non-equilibrium steady state.</strong> The hardest test conceptually: a qubit coupled simultaneously to a hot bath and a cold bath, driven into a non-equilibrium steady state. Heat currents computed directly from the dissipator structure rather than inferred from energy differences. <strong>Result:</strong> energy conservation closes to one part in 10<sup>16</sup>. The ratio Q<sub>in</sub> / (T<sub>eff</sub> &middot; dS<sub>hot</sub>) equals 1.000 <em>exactly</em> across all coupling configurations tested &mdash; but this is an algebraic identity of how <em>T</em><sub>eff</sub> is defined from the steady-state populations, not evidence for Assumption A. It holds to machine precision even for rates that violate detailed balance. The test confirms the self-consistency of the heat- and entropy-current bookkeeping; it does not probe the physical reversibility it was designed to address.</p>
 
   <p><strong>Test 5 &mdash; Non-thermal initial states (the negative result).</strong> The qubit is prepared in a coherent superposition |+&rang; with zero von Neumann entropy and maximum off-diagonal coherence. <strong>Result:</strong> the ratio takes values 1.37, 0.43, 0.21 at <em>r</em> = 0.10, 0.30, 0.50 &mdash; far from 1, strongly <em>r</em>-dependent, and inconsistent with Assumption A. <strong>Assumption A fails for non-thermal initial states with macroscopic quantum coherences.</strong></p>
 
@@ -425,7 +425,7 @@ tr:hover td { background: var(--surface); }
     <tr><td style="padding: 0.4rem 1rem;">5 &mdash; Coherent state</td><td style="padding: 0.4rem 1rem;">Non-thermal initial conditions</td><td style="padding: 0.4rem 1rem;">&times; fails &mdash; scope limit identified</td></tr>
   </table>
 
-  <p>Within the validated regime &mdash; thermal initial states, weak-to-moderate coupling, <em>T</em>/<em>T</em><sub>res</sub> in [0.20, 0.50], bosonic or qubit systems &mdash; Assumption A holds within numerical error. The proposed BEC experiment sits squarely inside this regime.</p>
+  <p>An important caveat governs how to read these results: for any state that stays thermal, &delta;Q = T &middot; dS is an algebraic identity, so Tests 1&ndash;4 verify the simulation&rsquo;s numerics and the thermal parametrization rather than independently confirming Assumption A. The one test that leaves the thermal manifold &mdash; the coherent state of Test 5 &mdash; is the one that fails. The honest takeaway is a scope statement: whenever the extracting system is thermal, the substitution holds by construction, and the proposed BEC experiment sits inside that regime.</p>
 
   <h2>The prediction</h2>
 
@@ -433,9 +433,9 @@ tr:hover td { background: var(--surface); }
 
   <p>Condensate temperature <em>T</em><sub>condensate</sub> &sim; 50 nK. Achievable analog Unruh temperature <em>T</em><sub>analog</sub> &sim; 10 nK. Ratio <em>T</em>/<em>T</em><sub>res</sub> = 0.2. Bound:</p>
 
-  <div class="equation">&eta;<sub>max</sub> = 1 / (1 + 0.2) = 0.833</div>
+  <div class="equation">&eta;<sub>max</sub> = 1 &minus; 0.2 = 0.80</div>
 
-  <p>Naive energetic accounting would predict &eta; &asymp; 1, with deviations only from mundane experimental losses. The bound&rsquo;s prediction differs from naive accounting by approximately <strong>17 percentage points</strong>.</p>
+  <p>Naive energetic accounting would predict &eta; &asymp; 1, with deviations only from mundane experimental losses. The bound&rsquo;s prediction differs from naive accounting by <strong>20 percentage points</strong>.</p>
 
   <h2>How to falsify it</h2>
 
@@ -445,7 +445,7 @@ tr:hover td { background: var(--surface); }
 
   <p><strong>(2)</strong> Efficiencies show <em>no scaling</em> with <em>T</em>/<em>T</em><sub>res</sub> &mdash; the holographic-screen substitution does not transpose to acoustic analog systems.</p>
 
-  <p><strong>(3)</strong> Efficiencies <em>do</em> scale with <em>T</em>/<em>T</em><sub>res</sub> but with a functional form inconsistent with 1/(1 + <em>T</em>/<em>T</em><sub>res</sub>) at the level of experimental error bars.</p>
+  <p><strong>(3)</strong> The low-loss envelope of &eta; <em>does</em> scale with <em>T</em>/<em>T</em><sub>res</sub> but with a form inconsistent with the Carnot ceiling 1 &minus; <em>T</em>/<em>T</em><sub>res</sub> at the level of experimental error bars.</p>
 
   <p>A constant-offset suppression at any single value of <em>T</em>/<em>T</em><sub>res</sub> can be reproduced by mundane loss channels &mdash; thermal phonon populations, mode-coupling losses, density inhomogeneities. The decisive test is the <em>specific functional form</em> of &eta; vs. <em>T</em>/<em>T</em><sub>res</sub> across the accessible range. That cannot be reproduced by mundane losses without conspiracy.</p>
 
